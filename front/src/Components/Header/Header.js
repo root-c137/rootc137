@@ -2,6 +2,7 @@
 
 import './Header.scss';
 import {Link} from "react-router-dom";
+import {Footer} from "../Footer/Footer";
 
 export const Header = () =>
 {
@@ -33,9 +34,12 @@ export const Header = () =>
                     <Link to="#"><i className="fa-brands fa-x-twitter"></i></Link>
                     <Link to="#"><i className="fa-brands fa-youtube"></i></Link>
                     <Link to="#"><i className="fa-brands fa-twitch"></i></Link>
-                    <Link to="#"><i class="fa-brands fa-tiktok"></i></Link>
+                    <Link to="#"><i className="fa-brands fa-tiktok"></i></Link>
                 </div>
+
+                <Footer />
             </div>
+
         </header>
     )
 }

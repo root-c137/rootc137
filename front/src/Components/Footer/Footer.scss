@@ -1,0 +1,24 @@
+
+
+
+.Footer
+{
+  width:100%;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  a
+  {
+    color:lightgray;
+    font-size: 0.7rem;
+    margin:4px;
+    cursor: pointer;
+
+    &:hover
+    {
+      text-decoration: underline;
+    }
+  }
+}
