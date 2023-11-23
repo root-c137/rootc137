@@ -26,6 +26,16 @@ export const Header = () =>
                     </li>
                 </ul>
             </nav>
+
+            <div className="Header__Social">
+                <p>pour me suivre</p>
+                <div className="Header__Social__List">
+                    <Link to="#"><i className="fa-brands fa-x-twitter"></i></Link>
+                    <Link to="#"><i className="fa-brands fa-youtube"></i></Link>
+                    <Link to="#"><i className="fa-brands fa-twitch"></i></Link>
+                    <Link to="#"><i class="fa-brands fa-tiktok"></i></Link>
+                </div>
+            </div>
         </header>
     )
 }

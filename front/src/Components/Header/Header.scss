@@ -2,7 +2,9 @@
 @import "../../Variables.scss";
 
 .Header,
-.Header__Menu
+.Header__Menu,
+.Header__Social,
+.Header__Social__List
 {
   display: flex;
 }
@@ -22,6 +24,7 @@
   padding-right: 20px;
   background-color: #282A36;
   border-right: 1px solid #44475A;
+  position: relative;
 
   &__Title
   {
@@ -70,6 +73,34 @@
           }
         }
       }
+  }
+
+  &__Social
+  {
+    width:100%;
+    position: absolute;
+    bottom:150px;
+    left:0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p
+    {
+      font-size: 0.9rem;
+    }
+
+    &__List
+    {
+      flex-direction: row;
+      margin-top:10px;
+      font-size: 25px;
+      a
+      {
+        margin:10px;
+      }
+    }
+
   }
 }
 
