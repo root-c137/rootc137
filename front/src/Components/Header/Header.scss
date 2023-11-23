@@ -1,0 +1,75 @@
+
+
+
+.Header,
+.Header__Menu
+{
+  display: flex;
+}
+
+.Header
+{
+  width:20%;
+  height:100vh;
+  position:absolute;
+  position: fixed;
+  left:0;
+  top:0;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-top:50px;
+  padding-right: 20px;
+  background-color: #282A36;
+  border-right: 1px solid #44475A;
+
+  &__Title
+  {
+    font-weight: bold;
+    font-size: 1.3rem;
+
+    a
+    {
+      color: #FF79C6;
+      transition: color 0.5s ease-in-out;
+    }
+    a:hover
+    {
+      color: #FF5555;
+    }
+  }
+
+  &__Subtitle
+  {
+    font-size: 0.8rem;
+    margin-top:10px
+  }
+
+  &__Menu
+  {
+    padding-top:150px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+      &__List
+      {
+        &__Item
+        {
+          margin-bottom:25px;
+          font-weight: bold;
+          font-size: 1.1rem;
+
+          a
+          {
+            transition: color 0.5s ease-in-out;
+          }
+          a:hover
+          {
+            color: #FF79C6;
+          }
+        }
+      }
+  }
+}
+
