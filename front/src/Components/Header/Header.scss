@@ -1,5 +1,5 @@
 
-
+@import "../../Variables.scss";
 
 .Header,
 .Header__Menu
@@ -9,7 +9,7 @@
 
 .Header
 {
-  width:20%;
+  width:$Header_Desktop_W;
   height:100vh;
   position:absolute;
   position: fixed;

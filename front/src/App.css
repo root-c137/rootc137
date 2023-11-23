@@ -1,4 +1,5 @@
 
+@import "./Variables.scss";
 
 body
 {
@@ -15,5 +16,18 @@ a
 {
   text-decoration: none;
   color: #F8F8F2;
+}
+
+.Container
+{
+  width: calc(100% - 320px);
+  max-width: calc(100% - 320px);
+  height:100vh;
+  margin-left:320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top:100px;
 }
 

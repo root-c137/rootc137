@@ -1,0 +1,51 @@
+
+
+.Home
+{
+  align-items: center;
+  justify-content: center;
+  padding-top:0;
+
+  &__Title
+  {
+    font-weight: bold;
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  &__Subtitle
+  {
+    font-size: 0.9rem;
+    margin-top:50px;
+    width:500px;
+    text-align: center;
+    line-height: 25px;
+  }
+
+  &__Presentation
+  {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width:50%;
+    padding-top:100px;
+
+    &__Item
+    {
+        width:250px;
+        height:200px;
+        font-size: 0.8rem;
+        text-align: center;
+        line-height: 19px;
+        margin:10px;
+
+        i
+        {
+          font-size: 50px;
+          margin-bottom: 20px;
+        }
+    }
+  }
+}
+
