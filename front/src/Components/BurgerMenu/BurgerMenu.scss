@@ -7,14 +7,16 @@
 
   &__Menu
   {
-    width:100%;
+    width:0;
     height:100vh;
     position:absolute;
     position: fixed;
     background-color: #282A36;
+    border-left:2px solid #FFF;
     z-index: 100;
     top:0;
-    left:0;
+    right: 0;
+    animation: MenuSlide 0.4s ease-in-out both;
   }
 
   input
@@ -58,6 +60,7 @@
     right: 0;
   }
 
+
   .MenuCheckBox:checked + label div:first-child {
     transform: rotate(45deg);
   }
@@ -74,4 +77,15 @@
     opacity: 0;
   }
 
+}
+
+@keyframes MenuSlide
+{
+  0%{width:0;}
+  100%{width:100%;}
+}
+@keyframes MenuSlideReverse
+{
+  0%{width:100%;}
+  100%{width:0;}
 }

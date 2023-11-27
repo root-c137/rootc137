@@ -31,11 +31,12 @@ a
   padding-top:100px;
   margin:auto;
 
-    @media (min-width: 1000px)
+    @media (min-width: 1200px)
     {
       width: calc(100% - 320px);
       max-width: calc(100% - 320px);
       margin-left:320px;
+      border:1px solid red;
     }
 }
 

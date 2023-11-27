@@ -23,7 +23,7 @@ export const Header = () =>
 
     const ShowHeader = () =>
     {
-        if(window.innerWidth >= 1000)
+        if(window.innerWidth >= 1200)
             setShowHeader(true);
         else
             setShowHeader(false);
