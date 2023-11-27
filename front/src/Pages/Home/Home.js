@@ -6,7 +6,7 @@ export const Home = () =>
 {
     return(
         <div className="Container Home">
-            <h1 className="Home__Title">Bienvenue sur mon site akhy !</h1>
+            <h1 className="Home__Title">Bienvenue sur mon site !</h1>
             <p className="Home__Subtitle">ici je parlerais librement de tout et de rien et partegerais avec toi mes différentes
             passions.</p>
 

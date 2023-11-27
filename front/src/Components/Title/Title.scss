@@ -1,0 +1,32 @@
+
+.TitleAndSubtitle
+{
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &__Title
+      {
+
+        font-weight: bold;
+        font-size: 1.3rem;
+        margin-top: 20px;
+
+        a {
+          color: #FF79C6;
+          transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+          color: #FF5555;
+        }
+    }
+
+    &__Subtitle
+    {
+        font-size: 0.7rem;
+        margin-top:10px
+    }
+}

@@ -3,44 +3,50 @@
 import './Header.scss';
 import {Link} from "react-router-dom";
 import {Footer} from "../Footer/Footer";
+import {Menu} from "../Menu/Menu";
+import {SocialMenu} from "../SocialMenu/SocialMenu";
+import {useEffect, useState} from "react";
+import {Title} from "../Title/Title";
+import {BurgerMenu} from "../BurgerMenu/BurgerMenu";
 
 export const Header = () =>
 {
+    const [showHeader, setShowHeader] = useState(false);
+
+    useEffect(() => {
+
+        ShowHeader();
+        window.addEventListener('resize', (e) => {
+           ShowHeader();
+        });
+    });
+
+    const ShowHeader = () =>
+    {
+        if(window.innerWidth >= 1000)
+            setShowHeader(true);
+        else
+            setShowHeader(false);
+    }
+
+
     return(
-        <header className="Header">
-            <h1 className="Header__Title"><Link to="/">rootc137</Link></h1>
-            <h2 className="Header__Subtitle">chômeur légendaire</h2>
+        <>
+            {
+                 showHeader ?
+                    <header className="Header">
+                        <Title />
+                        <Menu />
+                        <SocialMenu />
+                    </header>
+                    :
+                    <>
+                        <Title />
+                        <BurgerMenu />
+                    </>
+            }
+        </>
 
-            <nav className="Header__Menu">
-                <ul className="Header__Menu__List">
-                    <li className="Header__Menu__List__Item">
-                        <Link to="#">#rootledev</Link>
-                    </li>
-                    <li className="Header__Menu__List__Item">
-                        <Link to="#">#rootleyoutubeur</Link>
-                    </li>
-                    <li className="Header__Menu__List__Item">
-                        <Link to="#">#rootlestreameur</Link>
-                    </li>
-                    <li className="Header__Menu__List__Item">
-                        <Link to="#">#rootlecrivain</Link>
-                    </li>
-                </ul>
-            </nav>
-
-            <div className="Header__Social">
-                <p>pour me suivre</p>
-                <div className="Header__Social__List">
-                    <Link to="#"><i className="fa-brands fa-x-twitter"></i></Link>
-                    <Link to="#"><i className="fa-brands fa-youtube"></i></Link>
-                    <Link to="#"><i className="fa-brands fa-twitch"></i></Link>
-                    <Link to="#"><i className="fa-brands fa-tiktok"></i></Link>
-                </div>
-
-                <Footer />
-            </div>
-
-        </header>
     )
 }
 

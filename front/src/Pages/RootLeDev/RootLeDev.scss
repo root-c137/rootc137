@@ -1,0 +1,93 @@
+
+
+.RootLeDev
+{
+    &__Title
+    {
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #FF79C6;
+      font-size: 2rem;
+    }
+
+    &__Presentation
+    {
+      width:30%;
+      padding-top:20px;
+      text-align: center;
+
+      p
+      {
+        margin:10px;
+        font-size: 0.9rem;
+        line-height: 25px;
+      }
+    }
+
+    &__Menu
+    {
+      width:100%;
+      border-top:4px solid #FF79C6;
+      padding-top:10px;
+      margin-top:20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+        nav ul
+        {
+          display: flex;
+          flex-direction: row;
+
+            li
+            {
+              margin:10px;
+            }
+        }
+
+      #LinkArticles a
+      {
+        color: #50FA7B;
+      }
+      #LinkRealisations a
+      {
+        color: #F1FA8C;
+      }
+      #LinkTutos a
+      {
+        color: #8BE9FD;
+      }
+    }
+
+    &__CurrentPath
+    {
+      width:45%;
+      font-size: 0.7rem;
+      color: lightgray;
+      margin-top:50px;
+      margin-bottom: 4px;
+      text-align: left;
+    }
+
+    &__Main
+    {
+      width:45%;
+      background-color: #F8F8F2;
+      color: #44475A;
+      padding:20px;
+      font-size: 0.9rem;
+
+      h4
+      {
+        font-weight: bold;
+        margin-bottom: 13px;
+      }
+
+      p
+      {
+        width:450px;
+        line-height: 20px;
+      }
+    }
+}

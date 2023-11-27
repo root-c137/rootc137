@@ -25,81 +25,9 @@
   background-color: #282A36;
   border-right: 1px solid #44475A;
 
-  &__Title
-  {
-    font-weight: bold;
-    font-size: 1.3rem;
 
-    a
-    {
-      color: #FF79C6;
-      transition: color 0.5s ease-in-out;
-    }
-    a:hover
-    {
-      color: #FF5555;
-    }
-  }
 
-  &__Subtitle
-  {
-    font-size: 0.8rem;
-    margin-top:10px
-  }
 
-  &__Menu
-  {
-    padding-top:150px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
-      &__List
-      {
-        &__Item
-        {
-          margin-bottom:25px;
-          font-weight: bold;
-          font-size: 1.1rem;
-
-          a
-          {
-            transition: color 0.5s ease-in-out;
-          }
-          a:hover
-          {
-            color: #FF79C6;
-          }
-        }
-      }
-  }
-
-  &__Social
-  {
-    width:100%;
-    position: absolute;
-    bottom:150px;
-    left:0;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    p
-    {
-      font-size: 0.9rem;
-    }
-
-    &__List
-    {
-      flex-direction: row;
-      margin-top:10px;
-      font-size: 25px;
-      a
-      {
-        margin:10px;
-      }
-    }
-
-  }
 }
 

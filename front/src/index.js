@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Home} from "./Pages/Home/Home";
 import {Header} from "./Components/Header/Header";
+import {RootLeDev} from "./Pages/RootLeDev/RootLeDev";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +16,8 @@ root.render(
         <Header />
         <Routes>
             <Route path="/" element={<Home/>} />
+            <Route path="/rootledev" element={<RootLeDev/>} />
+            <Route path="/rootledev/articles" element={<RootLeDev/>} />
         </Routes>
     </BrowserRouter>
   </React.StrictMode>
