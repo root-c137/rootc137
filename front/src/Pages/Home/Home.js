@@ -1,6 +1,7 @@
 
 
 import './Home.scss';
+import {Link} from "react-router-dom";
 
 export const Home = () =>
 {
@@ -14,14 +15,17 @@ export const Home = () =>
                 <div className="Home__Presentation__Item">
                     <i className="fa-solid fa-code"></i>
                     <p>Je crée des sites web, des applications mobiles et des jeux vidéos..</p>
+                    <Link to="/rootledev">#rootledev</Link>
                 </div>
                 <div className="Home__Presentation__Item">
                     <i className="fa-brands fa-youtube"></i>
                     <p>Je crée du contenu pour ma chaine Youtube, Twitch, Tiktok.. etc</p>
+                    <Link to="/rootledev">#rootledev</Link>
                 </div>
                 <div className="Home__Presentation__Item">
                     <i className="fa-solid fa-pen-nib"></i>
                     <p>J'écris également des livres pour te faire réver un peu.</p>
+                    <Link to="/rootledev">#rootledev</Link>
                 </div>
             </div>
         </div>
