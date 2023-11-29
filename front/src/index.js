@@ -18,6 +18,8 @@ root.render(
             <Route path="/" element={<Home/>} />
             <Route path="/rootledev" element={<RootLeDev/>} />
             <Route path="/rootledev/articles" element={<RootLeDev/>} />
+            <Route path="/rootledev/realisations" element={<RootLeDev/>} />
+            <Route path="/rootledev/tutos" element={<RootLeDev/>} />
         </Routes>
     </BrowserRouter>
   </React.StrictMode>

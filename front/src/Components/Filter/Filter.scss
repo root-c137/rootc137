@@ -1,0 +1,41 @@
+
+
+.Filter, ul
+{
+  display: flex;
+}
+.Filter
+{
+  width:100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+    ul
+    {
+      flex-direction: row;
+
+      li
+      {
+        width:50px;
+        text-align: center;
+        margin:5px;
+        background-color: #F8F8F2;
+        padding:10px;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        color: #44475A;
+
+        &:hover
+        {
+          background-color: #F1FA8C;
+          cursor: pointer;
+        }
+      }
+    }
+
+  .currentCat
+  {
+    background-color: #F1FA8C;
+  }
+}

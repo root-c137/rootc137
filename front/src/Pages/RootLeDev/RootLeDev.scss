@@ -2,24 +2,29 @@
 
 .RootLeDev
 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
     &__Title
     {
       font-weight: bold;
       text-transform: uppercase;
       color: #FF79C6;
-      font-size: 2rem;
+      font-size: 1.4rem;
     }
 
     &__Presentation
     {
-      width:30%;
+      width:99%;
       padding-top:20px;
       text-align: center;
 
       p
       {
         margin:10px;
-        font-size: 0.9rem;
+        font-size: 0.88rem;
         line-height: 25px;
       }
     }
@@ -34,6 +39,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      position: relative;
 
         nav ul
         {
@@ -58,25 +64,41 @@
       {
         color: #8BE9FD;
       }
+
+      &__CurrentPath
+      {
+        padding-top:10px;
+        width:100%;
+        font-size: 0.7rem;
+        color: lightgray;
+        margin-bottom: 4px;
+        text-align: center;
+        padding-left:10px;
+
+
+        @media (min-width: 1000px) {
+          width: 800px;
+        }
+
+      }
     }
 
-    &__CurrentPath
-    {
-      width:45%;
-      font-size: 0.7rem;
-      color: lightgray;
-      margin-top:50px;
-      margin-bottom: 4px;
-      text-align: left;
-    }
+
 
     &__Main
     {
-      width:45%;
+      width:80%;
       background-color: #F8F8F2;
       color: #44475A;
       padding:20px;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+
+      @media (min-width: 600px)
+      {
+        width: 570px;
+        padding:30px;
+        font-size: 1rem;
+      }
 
       h4
       {
@@ -86,8 +108,8 @@
 
       p
       {
-        width:450px;
-        line-height: 20px;
+        line-height: 25px;
+
       }
     }
 }

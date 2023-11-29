@@ -1,24 +1,29 @@
 
 
 import './RootLeDev.scss';
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Link, useLocation} from "react-router-dom";
+import {Home} from "./Home/Home";
+import {Articles} from "./Articles/Articles";
+import {Realisations} from "./Realisations/Realisations";
+import {Tutos} from "./Tutos/Tutos";
 
 export const RootLeDev = () =>
 {
     const Location = useLocation();
+    const [location, setLocation] = useState("");
 
     useEffect(() => {
 
-        switch(Location.pathname)
-        {
-            case "/rootledev":
-            {
+        const currentLocation = Location.pathname.split('/');
 
-            }
-        }
-        console.log(Location.pathname);
-    }, []);
+        if(currentLocation[currentLocation.length - 1] === "rootledev")
+            setLocation("home");
+        else
+        setLocation(currentLocation[currentLocation.length - 1] );
+
+        console.log(currentLocation);
+    }, [Location.pathname]);
 
 
     return(
@@ -35,31 +40,24 @@ export const RootLeDev = () =>
                     <ul>
                         <li><Link to="/rootledev"><i className="fa-solid fa-house"></i></Link></li>
                         <li id="LinkArticles"><Link to="/rootledev/articles">articles</Link></li>
-                        <li id="LinkRealisations"><Link to="/">réalisations</Link></li>
-                        <li id="LinkTutos"><Link to="/">tutos</Link></li>
+                        <li id="LinkRealisations"><Link to="/rootledev/realisations">réalisations</Link></li>
+                        <li id="LinkTutos"><Link to="/rootledev/tutos">tutos</Link></li>
                     </ul>
                 </nav>
+
+                <div className="RootLeDev__Menu__CurrentPath">
+                    {"#rootledev/"+location}
+                </div>
             </section>
 
-            <div className="RootLeDev__CurrentPath">
-                #rootledev/home
-            </div>
-            <main className="RootLeDev__Main">
-                <h4>T'es qui ?</h4>
-                <p>
-                    Le Lorem Ipsum est simplement du faux texte employé
-                    dans la composition et la mise en page avant impression.
-                    Le Lorem Ipsum est le faux texte standard de l'imprimerie
-                    depuis les années 1500, quand un imprimeur anonyme assembla
-                    ensemble des morceaux de texte pour réaliser un livre spécimen de polices de
-                    texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à
-                    la bureautique informatique, sans que son contenu n'en soit modifié. Il a été
-                    popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant
-                    des passages du Lorem Ipsum, et, plus récemment,
-                    par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
-                </p>
 
-            </main>
+            {Location.pathname === "/rootledev" && <Home />}
+            {Location.pathname === "/rootledev/articles" && <Articles />}
+            {Location.pathname === "/rootledev/realisations" && <Realisations />}
+            {Location.pathname === "/rootledev/tutos" && <Tutos />}
+
         </div>
     )
 }
+
+

@@ -1,0 +1,24 @@
+
+
+
+.RootLeDev__Home
+{
+  background-color: #F8F8F2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding:20px;
+  border-radius: 10px;
+  color: #44475A;
+
+  &__Title
+  {
+    color: #FF79C6;
+    font-weight: bold;
+  }
+
+  @media (min-width: 1000px)
+  {
+    width: 800px;
+  }
+}
