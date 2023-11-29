@@ -39,9 +39,15 @@ export const RootLeDev = () =>
                 <nav>
                     <ul>
                         <li><Link to="/rootledev"><i className="fa-solid fa-house"></i></Link></li>
-                        <li id="LinkArticles"><Link to="/rootledev/articles">articles</Link></li>
-                        <li id="LinkRealisations"><Link to="/rootledev/realisations">réalisations</Link></li>
-                        <li id="LinkTutos"><Link to="/rootledev/tutos">tutos</Link></li>
+                        <li id="LinkArticles" className={location === "articles" ? "currentCat" : ""}>
+                            <Link to="/rootledev/articles">articles</Link>
+                        </li>
+                        <li id="LinkRealisations" className={location === "realisations" ? "currentCat" : ""}>
+                            <Link to="/rootledev/realisations">réalisations</Link>
+                        </li>
+                        <li id="LinkTutos"  className={location === "tutos" ? "currentCat" : ""}>
+                            <Link to="/rootledev/tutos">tutos</Link>
+                        </li>
                     </ul>
                 </nav>
 
