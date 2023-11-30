@@ -24,39 +24,46 @@
       box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 2px 0px, rgba(0, 0, 0, 0.05) 0px 0px 2px 0px;
       transition: all 0.4s ease-in-out;
       border-radius: 10px;
-      padding-left:10px;
       color: #44475A;
       cursor: pointer;
       user-select: none;
+      padding-bottom: 10px;
 
-        img
+      @media (min-width: 1000px)
+      {
+        width: 95%;
+      }
+
+        &__Image
         {
-          width:100px;
-          height:100px;
-          border-radius: 10px 0 0 10px;
 
-          @media (min-width: 500px)
+
+          border-radius: 10px 0 0 10px;
+          display: none;
+
+          @media (min-width: 1000px)
           {
-            width: 150px;
-            height: 150px;
-          }
-          @media (min-width: 700px)
-          {
-            width: 200px;
-            height: 200px;
+            width:400px;
+            height:200px;
+            display: flex;
           }
         }
 
         &__Right
         {
-          padding-left: 20px;
-          padding-top:10px;
+          display: flex;
+          width:100%;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          flex-wrap: wrap;
 
             &__Title
             {
               font-weight: bold;
               font-size: 1rem;
               margin-bottom: 20px;
+              padding-left:10px;
 
               @media (min-width: 500px)
               {
@@ -65,13 +72,18 @@
             }
             &__Resume
             {
+              width:90%;
               font-size: 0.8rem;
+              line-height: 1.1rem;
+              word-wrap: break-word;
+              padding:10px;
 
               @media (min-width: 500px)
               {
                 font-size: 0.9rem;
               }
             }
+
         }
 
       &:hover

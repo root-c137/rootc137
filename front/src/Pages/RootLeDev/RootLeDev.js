@@ -7,6 +7,7 @@ import {Home} from "./Home/Home";
 import {Articles} from "./Articles/Articles";
 import {Realisations} from "./Realisations/Realisations";
 import {Tutos} from "./Tutos/Tutos";
+import {Realisation} from "./Realisation/Realisation";
 
 export const RootLeDev = () =>
 {
@@ -20,7 +21,18 @@ export const RootLeDev = () =>
         if(currentLocation[currentLocation.length - 1] === "rootledev")
             setLocation("home");
         else
-        setLocation(currentLocation[currentLocation.length - 1] );
+        {
+               if(currentLocation.length > 3 &&
+               currentLocation[currentLocation.length - 1].length > 0)
+               {
+                   setLocation(currentLocation[currentLocation.length - 2] + "/" +
+                       currentLocation[currentLocation.length - 1]);
+               }
+               else if(currentLocation[currentLocation.length - 1].length === 0)
+                   setLocation(currentLocation[currentLocation.length - 2]);
+               else
+                   setLocation(currentLocation[currentLocation.length - 1]);
+        }
 
         console.log(currentLocation);
     }, [Location.pathname]);
@@ -57,10 +69,13 @@ export const RootLeDev = () =>
             </section>
 
 
-            {Location.pathname === "/rootledev" && <Home />}
-            {Location.pathname === "/rootledev/articles" && <Articles />}
-            {Location.pathname === "/rootledev/realisations" && <Realisations />}
-            {Location.pathname === "/rootledev/tutos" && <Tutos />}
+            {location === "home" && <Home />}
+            {location === "articles" && <Articles />}
+            {location === "realisations" && <Realisations />}
+            {location === "tutos" && <Tutos />}
+            {location.includes("realisations/") && location.length >= 15
+            ? <Realisation /> : ''}
+
 
         </div>
     )

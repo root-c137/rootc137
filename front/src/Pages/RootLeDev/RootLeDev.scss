@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 200px;
 
     &__Title
     {
@@ -17,7 +18,7 @@
 
     &__Presentation
     {
-      width:99%;
+      width:90%;
       padding-top:20px;
       text-align: center;
 
@@ -26,6 +27,11 @@
         margin:10px;
         font-size: 0.88rem;
         line-height: 25px;
+      }
+
+      @media (min-width: 500px)
+      {
+        width: 450px;
       }
     }
 
@@ -116,4 +122,6 @@
 
       }
     }
+
+
 }

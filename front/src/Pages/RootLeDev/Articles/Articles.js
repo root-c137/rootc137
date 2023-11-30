@@ -9,7 +9,7 @@ export const Articles = () =>
         {
             "Title": "Titre1",
             "Image": ImgTest,
-            "Resume": "Résumé de l'article 1 blablkablba .........",
+            "Resume": "Résumé de l'article 1 blablkablezvesaezvaqzefazefé  azba .........",
             "Author": "rootc137",
             "CreatedAt": "29/11/2023",
             "UpdatedAt": null
@@ -17,7 +17,7 @@ export const Articles = () =>
         {
             "Title": "Titre2",
             "Image": ImgTest,
-            "Resume": "Résumé de l'article 2 blablkablba .........",
+            "Resume": "Résumé de l'articleedkdsiddkdkdkdkdkdkdkdkdkdlslslsmsmsmsmsmsmslslssl 2 blablkablba .........",
             "Author": "rootc137",
             "CreatedAt": "29/11/2023",
             "UpdatedAt": null

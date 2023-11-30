@@ -8,6 +8,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Home} from "./Pages/Home/Home";
 import {Header} from "./Components/Header/Header";
 import {RootLeDev} from "./Pages/RootLeDev/RootLeDev";
+import {Realisation} from "./Pages/RootLeDev/Realisation/Realisation";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +20,7 @@ root.render(
             <Route path="/rootledev" element={<RootLeDev/>} />
             <Route path="/rootledev/articles" element={<RootLeDev/>} />
             <Route path="/rootledev/realisations" element={<RootLeDev/>} />
+            <Route path="/rootledev/realisations/:title" element={<RootLeDev />} />
             <Route path="/rootledev/tutos" element={<RootLeDev/>} />
         </Routes>
     </BrowserRouter>
