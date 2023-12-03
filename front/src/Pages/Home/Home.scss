@@ -48,7 +48,7 @@
     &__Item
     {
         width:150px;
-        height:180px;
+        height:150px;
         font-size: 0.7rem;
         text-align: center;
         line-height: 19px;
@@ -87,6 +87,7 @@
       @media (min-width: 500px)
       {
         width:180px;
+        height:170px;
       }
       @media (min-width: 1200px)
       {

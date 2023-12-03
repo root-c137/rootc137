@@ -7,7 +7,7 @@ export const Footer = () =>
     return(
         <footer className="Footer">
             <Link to="#">mentions légales</Link>
-            <Link to="#">contact</Link>
+            <Link to="/contact">contact</Link>
         </footer>
     )
 }

@@ -1,0 +1,134 @@
+
+
+.Contact,
+.Contact .FormGroup
+{
+  display: flex;
+}
+
+
+.Contact
+{
+  width:85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #F8F8F2;
+  padding:20px;
+  padding-top:100px;
+  text-align: center;
+  color: #44475A;
+  border-radius: 10px;
+  margin-bottom: 140px;
+  position: relative;
+
+    &__Title
+    {
+      font-weight: bold;
+      font-size: 1.1rem;
+      position:absolute;
+      left:10px;
+      top:10px;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      i
+      {
+        font-size: 1.5rem;
+        margin-left:10px;
+      }
+    }
+
+    p
+    {
+      width: 100%;
+      font-size: 0.9rem;
+      line-height: 1.4rem;
+      text-align: center;
+    }
+
+    form
+    {
+      padding-top:50px;
+      width:100%;
+      color: #44475A;
+
+      .FormGroup
+      {
+        width:100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-bottom:15px;
+
+        label
+        {
+          font-weight: bold;
+          padding-left:10px;
+        }
+
+        input, textarea, select
+        {
+          width: 100%;
+          outline:none;
+          padding-left:10px;
+          border-radius: 10px;
+          border:2px solid transparent;
+
+          &:focus
+          {
+            border:2px solid #FF79C6;
+          }
+        }
+
+        input
+        {
+          height:35px;
+          outline:none;
+        }
+        textarea
+        {
+          min-height: 200px;
+          padding-top:10px;
+          resize: vertical;
+        }
+        select
+        {
+          height:40px;
+        }
+      }
+
+      button
+      {
+        width:50%;
+        border:1px solid lightgray;
+        border-radius: 10px;
+        padding:10px;
+        color: #44475A;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+
+          &:hover
+          {
+            background-color: #FF79C6;
+          }
+      }
+    }
+
+  @media (min-width: 500px)
+  {
+    width: 70%;
+  }
+  @media (min-width: 1200px)
+  {
+    width: 500px;
+    margin-top:-100px;
+  }
+}
+
+
+

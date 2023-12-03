@@ -17,9 +17,6 @@ export const Menu = ({refreshMenu}) =>
                         <Link to="#" onClick={refreshMenu}>#rootleyoutubeur</Link>
                     </li>
                     <li className="Menu__List__Item">
-                        <Link to="#" onClick={refreshMenu}>#rootlestreameur</Link>
-                    </li>
-                    <li className="Menu__List__Item">
                         <Link to="#" onClick={refreshMenu}>#rootlecrivain</Link>
                     </li>
                 </ul>

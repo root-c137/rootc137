@@ -1,9 +1,12 @@
 
 @import "./Variables.scss";
 
-body
+*
 {
   box-sizing: border-box;
+}
+body
+{
   width:100%;
   font-family: "Ubuntu", sans-serif;
   color: #F8F8F2;
@@ -31,7 +34,8 @@ a
   padding-top:100px;
   margin:auto;
 
-    @media (min-width: 1200px)
+
+  @media (min-width: 1200px)
     {
       width: calc(100% - 320px);
       max-width: calc(100% - 320px);
