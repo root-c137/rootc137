@@ -1,0 +1,41 @@
+
+
+.Admin, .Admin__Menu, .Admin__Menu__Item,
+.Admin__Main
+{
+  display: flex;
+}
+
+.Admin
+{
+  width:100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 200px;
+
+  h1
+  {
+    color: #FF79C6;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  i
+  {
+    cursor: pointer;
+  }
+
+  &__Main
+  {
+    width:90%;
+    background-color: #F8F8F2;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding:20px;
+    margin-top:30px;
+
+  }
+
+}
+

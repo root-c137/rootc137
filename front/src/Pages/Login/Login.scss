@@ -1,0 +1,78 @@
+
+
+.Login, .Login__Form,
+.Login__Form__FormGroup
+{
+  display: flex;
+  flex-direction: column;
+}
+.Login
+{
+  justify-content: flex-start;
+  align-items: center;
+
+  h3
+  {
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  &__Form
+  {
+    width:89%;
+    padding-top:100px;
+    justify-content: center;
+    align-items: center;
+
+    &__FormGroup
+    {
+      width:90%;
+      margin-bottom: 20px;
+
+        input
+        {
+          height:40px;
+          outline: none;
+          border:1px solid transparent;
+          transition: all 0.4s ease-in-out;
+          text-align: center;
+          font-weight: bold;
+
+          &:hover
+          {
+            border:1px solid #FF79C6;
+          }
+        }
+        label
+        {
+          margin-bottom: 5px;
+        }
+    }
+
+    &__Button
+    {
+      border:none;
+      outline:none;
+      background-color: #F8F8F2;
+      color: #44475A;
+      padding:10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover
+      {
+        background-color: #FF79C6;
+        color: #F8F8F2;
+      }
+    }
+
+
+    @media (min-width: 500px)
+    {
+      width:350px;
+    }
+  }
+}

@@ -10,6 +10,10 @@ import {Header} from "./Components/Header/Header";
 import {RootLeDev} from "./Pages/RootLeDev/RootLeDev";
 import {Realisation} from "./Pages/RootLeDev/Realisation/Realisation";
 import {Contact} from "./Pages/Contact/Contact";
+import {Admin} from "./Pages/Admin";
+import {Login} from "./Pages/Login/Login";
+import {Protected} from "./Components/Protected/Protected";
+import {Users} from "./Pages/Admin/Users/Users";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +28,13 @@ root.render(
             <Route path="/rootledev/realisations/:title" element={<RootLeDev />} />
             <Route path="/rootledev/tutos" element={<RootLeDev/>} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/admin" element={<Protected><Admin/></Protected>} />
+            <Route path="/admin/users" element={<Protected><Admin/></Protected>} />
+            <Route path="/admin/users/:id" element={<Protected><Admin/></Protected>} />
+            <Route path="/admin/articles" element={<Protected><Admin/></Protected>} />
+            <Route path="/admin/articles/:id" element={<Protected><Admin/></Protected>} />
+
         </Routes>
     </BrowserRouter>
   </React.StrictMode>

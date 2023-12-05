@@ -1,0 +1,29 @@
+
+
+.HeaderEdit
+{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  h2
+  {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #FF79C6;
+  }
+  h3
+  {
+    margin-bottom: 40px;
+  }
+  &__Return
+  {
+    color: #44475A;
+    &:hover
+    {
+      color: #FF79C6;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+
+
+.TableAdmin
+{
+  color: #44475A;
+  width: 100%;
+  margin:auto;
+  table-layout: fixed;
+
+
+  td, th
+  {
+    word-break: break-word;
+    font-weight: bold;
+    padding:6px;
+  }
+  th
+  {
+    font-size: 0.8rem;
+    background-color: lightgray;
+  }
+  td
+  {
+    font-size: 0.7rem;
+    text-align: center;
+    font-weight: initial;
+    border:1px solid lightgray;
+    vertical-align: middle;
+
+    a, button
+    {
+      border:none;
+      outline: none;
+      width: 20px;
+      padding:2px;
+      margin:3px;
+      color: #44475A;
+
+      i
+      {
+        font-size: 1rem;
+      }
+
+      &:hover > i
+      {
+        color: #FF79C6;
+      }
+    }
+  }
+
+  .TD_Resume
+  {
+    width:300px;
+  }
+
+  td:nth-child(1), th:nth-child(1) {
+    width: 35px;
+  }
+  td:last-child, th:last-child {
+    width: 70px;
+  }
+
+}
