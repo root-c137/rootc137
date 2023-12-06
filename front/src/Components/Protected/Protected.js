@@ -6,10 +6,11 @@ import {useNavigate} from "react-router-dom";
 
 export const Protected = ({children}) =>
 {
-    const [isOK, setisOK] = useState(true);
+    const [isOK, setisOK] = useState(null);
 
     useEffect(() =>
     {
+
         const checkToken = () =>
         {
             const URL = "testtoken";
@@ -18,12 +19,15 @@ export const Protected = ({children}) =>
             EasyFetch(URL, null, Method, localStorage.getItem('token')).then
             (res =>
             {
+                console.log(res);
                 if(res[0].message === "OK")
                     setisOK(true);
                 else
-                    setisOK(true);
+                    setisOK(false);
             });
         }
+
+        checkToken();
 
     }, []);
 
