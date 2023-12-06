@@ -7,6 +7,7 @@ import {BaseUploadsPath} from "../../../Utils/BasePathUpload";
 import {useEffect, useState} from "react";
 import {EasyFetch} from "../../../Utils/EasyFetch";
 import {useLocation} from "react-router-dom";
+import {Slugify} from "../../../Utils/Slugify";
 export const Article = () =>
 {
     const [slug, setSlug] = useState(null);
@@ -14,7 +15,7 @@ export const Article = () =>
     const Location = useLocation();
     useEffect(() =>
     {
-        setSlug(Location.pathname.split('/')[3]);
+        setSlug(Location.pathname.split('/')[3] );
         if(slug)
             getArticle();
 

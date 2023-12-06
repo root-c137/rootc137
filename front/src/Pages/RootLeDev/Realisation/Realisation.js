@@ -17,7 +17,6 @@ export const Realisation = () =>
     const Navigate = useNavigate();
 
     useEffect(() => {
-
         setSlug(Location.pathname.split('/')[3]);
         if(slug)
             getRealisation();
@@ -30,12 +29,11 @@ export const Realisation = () =>
         const Method = "GET";
 
         EasyFetch(URL, null, Method, null, null, "/").then(res => {
+            console.log(res);
             if(res[1] === 200)
                 setRealisation(res[0].data);
         });
     }
-
-
 
     return(
         <div className="RootLeDev__Realisation">
@@ -69,10 +67,10 @@ export const Realisation = () =>
                     </table>
                 </div>
                 <div className="RootLeDev__Realisation__Infos__Right">
-                    <i className="fa-solid fa-globe"></i>
-                    <i className="fa-brands fa-google-play"></i>
-                    <i className="fa-brands fa-apple"></i>
-                    <i className="fa-brands fa-github"></i>
+                    {realisation?.web && <a href={realisation?.web}><i className="fa-solid fa-globe"></i></a>}
+                    {realisation?.android && <a href={realisation?.android}><i className="fa-brands fa-google-play"></i></a>}
+                    {realisation?.ios && <><a href={realisation?.ios}><i className="fa-brands fa-apple"></i></a></>}
+                    {realisation?.github && <a href={realisation?.github}><i className="fa-brands fa-github"></i></a>}
                 </div>
             </div>
 

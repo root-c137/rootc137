@@ -89,7 +89,7 @@ export const EditProject = () =>
 
     const updateTitle = () =>
     {
-        if(title && title !== project?.title && title?.length > 10)
+        if(title && title !== project?.title)
         {
             const URL = "project/"+id+"/title";
             const Method = "PUT";
@@ -329,7 +329,6 @@ export const EditProject = () =>
                     setError(res[0].message);
             });
         }
-
     }
 
     return (

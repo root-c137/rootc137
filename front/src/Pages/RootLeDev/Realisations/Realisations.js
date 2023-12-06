@@ -53,10 +53,7 @@ export const Realisations = () =>
 
     const getRealisation = (realisation) =>
     {
-        const URL = "realisation/"+realisation.id;
-        const Method = "GET";
-
-        Navigate('/rootledev/realisations/'+Slugify(realisation.title), {
+        Navigate('/rootledev/realisations/'+realisation?.slug, {
             state: {realisation : realisation}
         });
     }

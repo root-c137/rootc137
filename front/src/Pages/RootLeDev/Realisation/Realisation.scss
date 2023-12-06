@@ -92,22 +92,27 @@
       padding-right: 10px;
 
 
-        i
+        a
         {
           margin:5px;
           font-size: 1.1rem;
           cursor: pointer;
 
-          &:hover
+          i
+          {
+            color: #282A36;
+            @media (min-width: 500px)
+            {
+              font-size: 1.3rem;
+            }
+          }
+
+          &:hover > i
           {
             color: #FF79C6;
           }
-
-          @media (min-width: 500px)
-          {
-            font-size: 1.3rem;
-          }
         }
+
     }
 
 
