@@ -15,7 +15,7 @@ class getArticleController extends AbstractController
     {
         $Msg = "Ok";
         $StatusCode = 200;
-        $Data = [];
+        $Data = null;
 
         if($slug)
         {

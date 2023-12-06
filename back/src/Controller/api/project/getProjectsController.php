@@ -37,6 +37,7 @@ class getProjectsController extends AbstractController
                     "status" => $project->getStatus(),
                     "section" => $project->getSection()->getName(),
                     "category" => $project->getCategory(),
+                    "slug" => $project->getSlug(),
                     "createdAt" => $project->getCreatedAt()->format('d-m-Y'),
                     "updatedAt" => $project->getUpdatedAt() !== null ? $project->getUpdatedAt()->format('d-m-Y') : null
                 ];

@@ -35,6 +35,10 @@ class getProjectBySlugController extends AbstractController
                     "image" => $P->getImage(),
                     "links" => $P->getLinks(),
                     "slug" => $P->getSlug(),
+                    "android" => $P->getAndroid(),
+                    "ios" => $P->getIos(),
+                    "web" => $P->getWeb(),
+                    "github" => $P->getGithub(),
                     "presentation" => $P->getPresentation()
                 ];
             }
