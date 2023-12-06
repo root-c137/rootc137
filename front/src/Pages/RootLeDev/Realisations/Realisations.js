@@ -8,75 +8,60 @@ import {EasyFetch} from "../../../Utils/EasyFetch";
 import ImgTest from "../../../Images/Articles/Test.jpg";
 import {useLocation, useNavigate} from "react-router-dom";
 import {Slugify} from "../../../Utils/Slugify";
+import {getElementError} from "@testing-library/react";
+import {BaseUploadsPath} from "../../../Utils/BasePathUpload";
 export const Realisations = () =>
 {
     const Navigate = useNavigate();
     const [currentCat, setCurrentCat] = useState("tout");
     const [realisationsFiltered, setRealisationsFiltered] = useState([]);
-    const [Realisations, setRealisations] = useState([
-        {
-            "id" : 0,
-            "Title": "mycrushacademia",
-            "Image": ImgTest,
-            "Resume": "resumé de la réalisation....",
-            "Category": ['web']
-        },
-        {
-            "id" : 1,
-            "Title": "my crush academia",
-            "Image": ImgTest,
-            "Resume": "resumé de la réalisation....",
-            "Category": ['web', 'app']
-        },
-        {
-            "id" : 2,
-            "Title": "my crush academia",
-            "Image": ImgTest,
-            "Resume": "resumé de la réalisation....",
-            "Category": ['app']
-        },
-        {
-            "id" : 3,
-            "Title": "my crush academia",
-            "Image": ImgTest,
-            "Resume": "resumé de la réalisation....",
-            "Category": ['autres']
-        },
-        {
-            "id" : 4,
-            "Title": "my crush academia",
-            "Image": ImgTest,
-            "Resume": "resumé de la réalisation....",
-            "Category": ['web']
+    const [Realisations, setRealisations] = useState(null);
+
+    useEffect(() =>
+    {
+        if(!Realisations)
+        getRealisations();
+
+        if(currentCat === "tout") {
+            setRealisationsFiltered(Realisations);
         }
-        ]);
+        else
+            setRealisationsFiltered(Realisations.filter(r => r.category.includes(currentCat) ) );
 
-    useEffect(() => {
 
-        let RealisationsF = Realisations.filter(r => r.Category.includes(currentCat) );
-        if(currentCat === "tout")
-            RealisationsF = Realisations;
-
-        setRealisationsFiltered(RealisationsF);
     }, [currentCat]);
-
 
     const getRealisations = () =>
     {
-        const URL = "api/dev/realisations/"+currentCat;
-        const Method = "POST";
+        if(!Realisations)
+        {
+            const URL = "projects/"
+            const Method = "GET";
 
-        console.log("getrealisations...");
+            EasyFetch(URL, null, Method, null, null, "/").then(res => {
+                console.log(res);
+                if (res[1] === 200) {
+                    setRealisations(res[0].data);
+                    setRealisationsFiltered(res[0].data);
+                }
+            });
+
+            console.log("getrealisations...");
+        }
     }
 
-    const getRealisation = (id, title) =>
+    const filterRealisations = (data) =>
     {
-        console.log('get realisation id : '+id);
-        const URL = "api/dev/realisation/"+id;
+        setRealisationsFiltered(data.filter(r => r.category.includes(currentCat) ) );
+    }
+
+    const getRealisation = (realisation) =>
+    {
+        const URL = "realisation/"+realisation.id;
         const Method = "GET";
 
-        Navigate('/rootledev/realisations/'+Slugify(title), {
-            state: {realisation : Realisations[0]}
+        Navigate('/rootledev/realisations/'+Slugify(realisation.title), {
+            state: {realisation : realisation}
         });
     }
 
@@ -90,11 +75,17 @@ export const Realisations = () =>
                     {
                         return (
                             <div key={key} className="RootLeDev__Realisations__List__Item"
-                            onClick={() => getRealisation(realisation.id, realisation.Title)}>
-                                <img src={realisation.Image} alt="image article"/>
-                                <h3>{realisation.Title}</h3>
+                            onClick={() => getRealisation(realisation)}>
+                                <img
+                                    style={{
+                                        backgroundImage : `url(${BaseUploadsPath()+realisation.image})`,
+                                        backgroundRepeat: 'no-repeat',
+                                        backgroundPosition: 'center',
+                                        backgroundSize: 'cover'
+                                    }}/>
+                                <h3>{realisation?.title}</h3>
                                 <div className="RootLeDev__Realisations__List__Item__Cat">
-                                {realisation.Category.map((cat, key) => <span key={key}>{cat}</span>)}
+                                {realisation?.category.split(',').map((cat, key) => <span key={key}>{cat}</span>)}
                                 </div>
                             </div>
                         )

@@ -21,27 +21,21 @@ export const MenuAdmin = () =>
                 </div>
                 <p>Gérer les articles</p>
             </Link>
-            <div className="MenuAdmin__Item">
+            <Link to="/admin/sections" className="MenuAdmin__Item" >
                 <div>
                     <i className="fa-solid fa-newspaper"></i>
                     <h2>Sections</h2>
                 </div>
                 <p>Gérer les sections</p>
-            </div>
-            <div className="MenuAdmin__Item">
+            </Link>
+            <Link to="/admin/projects" className="MenuAdmin__Item" >
                 <div>
                     <i className="fa-solid fa-newspaper"></i>
-                    <h2>Categories</h2>
-                </div>
-                <p>Gérer les catégories</p>
-            </div>
-            <div className="MenuAdmin__Item">
-                <div>
-                    <i className="fa-solid fa-briefcase"></i>
                     <h2>Projets</h2>
                 </div>
                 <p>Gérer les projets</p>
-            </div>
+            </Link>
         </div>
     )
 }
+

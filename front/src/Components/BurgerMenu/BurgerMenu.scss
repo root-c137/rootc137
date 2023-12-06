@@ -60,20 +60,18 @@
     right: 0;
   }
 
-
   .MenuCheckBox:checked + label div:first-child {
     transform: rotate(45deg);
   }
 
   .MenuCheckBox:checked + label div:last-child {
-    transform: rotate(-46deg) translate(17px, -43px);
+    transform: rotate(-45deg) translate(16px, -40px);
   }
 
   .MenuCheckBox:checked + label div:nth-child(2) {
     width: 30px;
     top: 0;
-    transform: rotateZ(-45deg);
-    border:1px solid green;
+    transform: rotateZ(-40deg);
     opacity: 0;
   }
 

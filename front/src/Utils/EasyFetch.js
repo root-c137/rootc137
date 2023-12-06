@@ -1,32 +1,51 @@
 
 
-export const EasyFetch = (Url, Data = null, Method, Token = null) =>
+export const EasyFetch = (Url, Data = null, Method, Token = null, ContentType = "application/json",
+                          basePath = "/api/") =>
 {
     const API_PORT = 8000;
-    const BaseURL = "http://localhost:"+API_PORT+"/api/";
-    const Body = Data !== null ? JSON.stringify(Data) : null;
+    let BaseURL = "http://localhost:"+API_PORT+basePath;
+    if(window.location.origin !== "http://localhost:3000")
+        BaseURL = "https://finalgoat.com/FinalGoat/back/public"+basePath;
+
     const CurrentUrl = BaseURL+Url;
+    const Body = ContentType !== 'multipart/form-data' ? JSON.stringify(Data) : Data;
     let Status = 0;
 
     const Header = {
         'Accept' : 'application/json',
-        'Content-Type' : 'application/json',
         'Authorization' : 'Bearer '+Token
     }
+
+    if (ContentType !== 'multipart/form-data') {
+        Header['Content-Type'] = "application/json";
+    }
+
 
     let Init = {
         method : Method,
         headers : Header,
-        body : Body
+        body: Method === "GET" ? null : Body
     }
 
 
+    console.log(Init);
     return fetch(CurrentUrl, Init)
         .then(res=>  {
             Status = res.status;
-            return res.json();
+            const contentType = res.headers.get("content-type");
+            if (contentType && contentType.indexOf("application/json") !== -1) {
+                return res.json();
+            } else {
+                throw new Error('La réponse n\'est pas au format JSON');
+            }
         })
         .then(res =>  {
-            return [res, Status]})
+            return [res, Status]}
+        )
+        .catch(error => {
+            console.error('Erreur lors de l\'envoi de la requête :', error);
+            return Promise.reject(error);
+        });
 }
 

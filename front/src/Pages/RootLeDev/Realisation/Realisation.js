@@ -2,28 +2,51 @@
 
 import './Realisation.scss';
 import {useEffect, useState} from "react";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 import ImgTest from '../../../Images/Articles/Test.jpg';
+import {EasyFetch} from "../../../Utils/EasyFetch";
+import parse from "html-react-parser";
+import {BaseUploadsPath} from "../../../Utils/BasePathUpload";
 
 export const Realisation = () =>
 {
     const Location = useLocation();
     const [slug, setSlug] = useState(null);
+    const [realisation, setRealisation] = useState(null);
+    const Navigate = useNavigate();
 
     useEffect(() => {
 
         setSlug(Location.pathname.split('/')[3]);
         console.log(Location.pathname.split('/')[3]);
 
-    }, []);
+        if(slug)
+            getRealisation();
+
+    }, [slug]);
+
+    const getRealisation = () =>
+    {
+        console.log('REALISATION');
+        const URL = "project/"+slug;
+        const Method = "GET";
+
+        EasyFetch(URL, null, Method, null, null, "/").then(res => {
+            console.log(res);
+            if(res[1] === 200)
+                setRealisation(res[0].data);
+        });
+    }
+
+
 
     return(
         <div className="RootLeDev__Realisation">
-            <h3>My crush academia</h3>
+            <h3>{realisation?.title}</h3>
             <div className="RootLeDev__Realisation__Banniere"
                  style={{
-                     backgroundImage : `url(${ImgTest})`,
+                     backgroundImage : `url(${BaseUploadsPath()+realisation?.image})`,
                      backgroundRepeat: 'no-repeat',
                      backgroundPosition: 'center',
                      backgroundSize: 'cover'
@@ -35,16 +58,16 @@ export const Realisation = () =>
                     <table>
                         <tbody>
                             <tr>
-                                <td className="Table_Title">statut</td>
-                                <td>en cours</td>
+                                <td className="Table_Title">status</td>
+                                <td>{realisation?.status}</td>
                             </tr>
                             <tr>
                                 <td className="Table_Title">front</td>
-                                <td>react, sass</td>
+                                <td>{realisation?.front}</td>
                             </tr>
                             <tr>
                                 <td className="Table_Title">back</td>
-                                <td>express, mariadb</td>
+                                <td>{realisation?.back}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -59,19 +82,7 @@ export const Realisation = () =>
 
             <section className="RootLeDev__Realisation__Presentation">
                 <h4>Présentation</h4>
-                <p>
-                    Lorem Ipsum a commencé comme un latin brouillé, absurde dérivé de Cicero du 1er
-                    siècle BC texte De Finibus Bonorum et Malorum. Gravure de Marcus
-                    Tullius Cicero ...<br/>
-
-                    Lorem Ipsum a commencé comme un latin brouillé, absurde dérivé de Cicero du 1er
-                    siècle BC texte De Finibus Bonorum et Malorum. Gravure de Marcus
-                    Tullius Cicero ...<br/><br/>
-
-                    Lorem Ipsum a commencé comme un latin brouillé, absurde dérivé de Cicero du 1er
-                    siècle BC texte De Finibus Bonorum et Malorum. Gravure de Marcus
-                    Tullius Cicero ...
-                </p>
+                {realisation && parse(realisation?.presentation)}
             </section>
 
         </div>

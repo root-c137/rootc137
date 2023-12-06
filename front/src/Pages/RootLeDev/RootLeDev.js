@@ -8,18 +8,26 @@ import {Articles} from "./Articles/Articles";
 import {Realisations} from "./Realisations/Realisations";
 import {Tutos} from "./Tutos/Tutos";
 import {Realisation} from "./Realisation/Realisation";
+import {EasyFetch} from "../../Utils/EasyFetch";
+import {ProjectsListAdmin} from "../../Components/ProjectsListAdmin/ProjectsListAdmin";
+import {Article} from "./Article/Article";
 
 export const RootLeDev = () =>
 {
     const Location = useLocation();
     const [location, setLocation] = useState("");
+    const [resume, setResume] = useState(null);
+    const [presentation, setPresentation] = useState(null);
 
     useEffect(() => {
 
         const currentLocation = Location.pathname.split('/');
 
         if(currentLocation[currentLocation.length - 1] === "rootledev")
+        {
             setLocation("home");
+            getSection("rootledev");
+        }
         else
         {
                if(currentLocation.length > 3 &&
@@ -34,18 +42,30 @@ export const RootLeDev = () =>
                    setLocation(currentLocation[currentLocation.length - 1]);
         }
 
-        console.log(currentLocation);
-    }, [Location.pathname]);
+    }, [Location.pathname, location]);
+
+    const getSection = (name) =>
+    {
+        const URL = "section/byname/"+name;
+        const Method = "GET";
+
+
+        EasyFetch(URL, null, Method, null, null, "/").then(res => {
+            console.log(res);
+            if(res[1] === 200)
+            {
+                setResume(res[0].data.resume);
+                setPresentation(res[0].data.presentation);
+            }
+        });
+    }
 
 
     return(
         <div className="Container RootLeDev">
             <h3 className="RootLeDev__Title">#rootledev</h3>
             <div className="RootLeDev__Presentation">
-                <p>L'une de mes passions, la programmation !</p>
-                <p>Je partagerais ici mes différentes créations et je parlerais
-                    de tout ce qui est en rapport avec le code, l’IA, l'informatique
-                    et la technologie en générale.</p>
+                {resume ? resume : ''}
             </div>
             <section className="RootLeDev__Menu">
                 <nav>
@@ -69,13 +89,14 @@ export const RootLeDev = () =>
             </section>
 
 
-            {location === "home" && <Home />}
+            {location === "home" && <Home presentation={presentation} />}
             {location === "articles" && <Articles />}
             {location === "realisations" && <Realisations />}
             {location === "tutos" && <Tutos />}
             {location.includes("realisations/") && location.length >= 15
             ? <Realisation /> : ''}
-
+            {location.includes("articles/") && location.length >= 10
+                ? <Article  /> : ''}
 
         </div>
     )

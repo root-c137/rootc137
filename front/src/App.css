@@ -32,6 +32,7 @@ a
   justify-content: center;
   align-items: center;
   padding-top:100px;
+  padding-bottom: 200px;
   margin:auto;
 
 
@@ -42,4 +43,10 @@ a
       margin-left:320px;
     }
 }
+
+strong
+{
+  font-weight: bold;
+}
+
 

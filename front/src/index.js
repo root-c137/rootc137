@@ -15,6 +15,9 @@ import {Login} from "./Pages/Login/Login";
 import {Protected} from "./Components/Protected/Protected";
 import {Users} from "./Pages/Admin/Users/Users";
 
+
+export const BaseUploasPath = "http://localhost:8000/uploads/";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -24,16 +27,25 @@ root.render(
             <Route path="/" element={<Home/>} />
             <Route path="/rootledev" element={<RootLeDev/>} />
             <Route path="/rootledev/articles" element={<RootLeDev/>} />
+            <Route path="/rootledev/articles/:title" element={<RootLeDev/>} />
             <Route path="/rootledev/realisations" element={<RootLeDev/>} />
             <Route path="/rootledev/realisations/:title" element={<RootLeDev />} />
             <Route path="/rootledev/tutos" element={<RootLeDev/>} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
+
+
             <Route path="/admin" element={<Protected><Admin/></Protected>} />
             <Route path="/admin/users" element={<Protected><Admin/></Protected>} />
             <Route path="/admin/users/:id" element={<Protected><Admin/></Protected>} />
             <Route path="/admin/articles" element={<Protected><Admin/></Protected>} />
+            <Route path="/admin/articles/add" element={<Protected><Admin/></Protected>} />
             <Route path="/admin/articles/:id" element={<Protected><Admin/></Protected>} />
+            <Route path="/admin/sections" element={<Protected><Admin/></Protected>} />
+            <Route path="/admin/sections/:id" element={<Protected><Admin/></Protected>} />
+            <Route path="/admin/sections/add" element={<Protected><Admin/></Protected>} />
+            <Route path="/admin/projects/" element={<Protected><Admin/></Protected>} />
+            <Route path="/admin/projects/:id" element={<Protected><Admin/></Protected>} />
 
         </Routes>
     </BrowserRouter>

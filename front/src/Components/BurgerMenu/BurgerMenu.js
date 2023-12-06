@@ -8,8 +8,11 @@ export const BurgerMenu = () =>
     const [check, setCheck] = useState(false);
 
     useEffect(() => {
-        if(showMenu)
+        if(showMenu) {
             document.body.style.overflow = "hidden"
+        }
+        else
+            document.body.style.overflow = "initial"
 
     }, [showMenu]);
 
