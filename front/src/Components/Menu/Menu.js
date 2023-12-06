@@ -23,7 +23,7 @@ export const Menu = ({refreshMenu}) =>
                 </ul>
             </nav>
 
-            {window.innerWidth < 1200 && <><SocialMenu /><Footer/></>}
+            {window.innerWidth < 1200 && <><SocialMenu /><Footer refreshMenu={refreshMenu}/></>}
 
         </div>
 

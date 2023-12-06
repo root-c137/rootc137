@@ -2,6 +2,8 @@
 import './BurgerMenu.scss';
 import {useEffect, useState} from "react";
 import {Menu} from "../Menu/Menu";
+import {SocialMenu} from "../SocialMenu/SocialMenu";
+import {Footer} from "../Footer/Footer";
 export const BurgerMenu = () =>
 {
     const [showMenu, setShowMenu] = useState(false);
