@@ -47,6 +47,12 @@ security:
         - { path: ^/api/doc, roles: PUBLIC_ACCESS }
         - { path: ^/api/get-image/, roles: PUBLIC_ACCESS }
         - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/section, roles: PUBLIC_ACCESS, methods: ['GET']}
+        - { path: ^/project, roles: PUBLIC_ACCESS, methods: [ 'GET' ] }
+        - { path: ^/projects, roles: PUBLIC_ACCESS, methods: [ 'GET' ] }
+        - { path: ^/article, roles: PUBLIC_ACCESS, methods: [ 'GET' ] }
+        - { path: ^/articles, roles: PUBLIC_ACCESS, methods: [ 'GET' ] }
+
 
 when@test:
     security:

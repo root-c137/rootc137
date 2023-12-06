@@ -26,7 +26,7 @@ class createSectionController extends AbstractController
                 $Section = new Section();
                 $Section->setName($Data['name']);
                 $Section->setResume($Data['resume']);
-                $Section->setPresentation($Data['presentation']);
+                $Section->setPresentation(html_entity_decode($Data['presentation']));
                 $Section->setCreatedAt(new \DateTimeImmutable());
 
                 $Data = $Section;

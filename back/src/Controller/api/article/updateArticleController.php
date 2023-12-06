@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 
 class updateArticleController extends AbstractController
 {
@@ -26,7 +27,10 @@ class updateArticleController extends AbstractController
             $D = $request->toArray();
             if($D && !empty($D['title']) )
             {
+                $Slugger = new AsciiSlugger();
                 $article->setTitle($D['title']);
+                $article->setSlug($Slugger->slug($D['title'])->lower());
+
                 $M->flush();
                 $Data = [
                     "title" => $article->getTitle(),

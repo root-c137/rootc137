@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class getProjectsController extends AbstractController
 {
-    #[Route('/api/projects', name: 'app_api_project_get_projects', methods: ['GET'])]
+    #[Route('/projects', name: 'app_api_project_get_projects', methods: ['GET'])]
     public function index(EntityManagerInterface $Manager): JsonResponse
     {
         $Projects = $Manager->getRepository(Project::class)->findAll();

@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class getArticleController extends AbstractController
 {
-    #[Route('/api/article/{slug}', name: 'app_api_article_get_article', methods: ['GET'])]
+    #[Route('/article/{slug}', name: 'app_api_article_get_article', methods: ['GET'])]
     public function index($slug, EntityManagerInterface $M): JsonResponse
     {
         $Msg = "Ok";
@@ -22,7 +22,7 @@ class getArticleController extends AbstractController
             $Article = $M->getRepository(Article::class)->findOneBy(['Slug' => $slug]);
             if($Article)
             {
-                $Data[] = [
+                $Data = [
                     "title" => $Article->getTitle(),
                     "resume" => $Article->getResume(),
                     "author" => $Article->getAuthor(),

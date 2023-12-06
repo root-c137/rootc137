@@ -31,6 +31,10 @@ class getProjectByIdController extends AbstractController
                     "front" => $project->getFront(),
                     "back" => $project->getBack(),
                     "links" => $project->getLinks(),
+                    "github" => $project->getGithub(),
+                    "web" => $project->getWeb(),
+                    "ios" => $project->getIos(),
+                    "android" => $project->getAndroid(),
                     "image" => $project->getImage(),
                     "presentation" => $project->getPresentation()
                 ];

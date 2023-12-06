@@ -117,7 +117,7 @@ class updateSectionController extends AbstractController
             $D = $request->toArray();
             if(!empty($D) && strlen($D['presentation']) > 3)
             {
-                $section->setPresentation($D['presentation']);
+                $section->setPresentation(html_entity_decode($D['presentation']));
                 $section->setUpdatedAt(new \DateTimeImmutable() );
 
                 $Data = [

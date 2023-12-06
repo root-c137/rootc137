@@ -50,6 +50,21 @@ class Project
     #[ORM\Column(length: 255)]
     private ?string $Category = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $github = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $ios = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $android = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $web = null;
+
 
     public function getId(): ?int
     {
@@ -184,6 +199,66 @@ class Project
     public function setCategory(string $Category): static
     {
         $this->Category = $Category;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getGithub(): ?string
+    {
+        return $this->github;
+    }
+
+    public function setGithub(?string $github): static
+    {
+        $this->github = $github;
+
+        return $this;
+    }
+
+    public function getIos(): ?string
+    {
+        return $this->ios;
+    }
+
+    public function setIos(?string $ios): static
+    {
+        $this->ios = $ios;
+
+        return $this;
+    }
+
+    public function getAndroid(): ?string
+    {
+        return $this->android;
+    }
+
+    public function setAndroid(?string $android): static
+    {
+        $this->android = $android;
+
+        return $this;
+    }
+
+    public function getWeb(): ?string
+    {
+        return $this->web;
+    }
+
+    public function setWeb(?string $web): static
+    {
+        $this->web = $web;
 
         return $this;
     }

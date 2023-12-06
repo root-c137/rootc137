@@ -28,11 +28,13 @@ class createArticleController extends AbstractController
             $Section = $M->getRepository(Section::class)->findOneBy(['Name' => $D['Section'] ]);
             if($Section)
             {
+                $Slugger = new AsciiSlugger();
                 $Article = new Article();
                 $Article->setTitle($D['Title']);
                 $Article->setResume($D['Resume']);
                 $Article->setImage($D['Image']);
                 $Article->setText($D['Text']);
+                $Article->setSlug($Slugger->slug($D['Title'])->lower() );
                 $Article->setAuthor($D['Author']);
                 $Article->setSection($Section);
                 $Article->setCreatedAt(new \DateTimeImmutable());
