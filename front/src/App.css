@@ -38,9 +38,9 @@ a
 
   @media (min-width: 1200px)
     {
-      width: calc(100% - 320px);
-      max-width: calc(100% - 320px);
-      margin-left:320px;
+      width: calc(100% - 300px);
+      max-width: calc(100% - 300px);
+      margin-left:300px;
     }
 }
 
