@@ -21,8 +21,6 @@ export const ProjectsListAdmin = () =>
         {
             if(res[1] === 200)
                 setProjects(res[0].data);
-
-            console.log(res);
         });
     }
 

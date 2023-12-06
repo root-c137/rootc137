@@ -58,7 +58,6 @@ export const EditSections = () =>
 
         if(name !== null && name !== section?.name)
         {
-            console.log('..');
             const URL = "section/"+id+"/name";
             const Method = "PUT";
             const Data = {"name" : name};
@@ -95,7 +94,6 @@ export const EditSections = () =>
     }
     const updatePresentation = (update) =>
     {
-        console.log('updatePresentation..');
         if(update !== null && update !== section?.presentation)
         {
             const URL = "section/"+id+"/presentation";

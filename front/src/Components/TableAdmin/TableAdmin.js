@@ -5,8 +5,7 @@ import {useEffect} from "react";
 export const TableAdmin = ({data, thead, path}) =>
 {
     useEffect(() => {
-        console.log(thead);
-        console.log(thead[0])
+
     }, []);
 
     return(

@@ -57,7 +57,6 @@ export const AddProject = () =>
             && section !== null && links !== null
             && status !== null && image !== null && content !== null && category !== null)
         {
-            console.log('add pret..');
             setError(null);
             const URL = "project";
             const Method = "POST";

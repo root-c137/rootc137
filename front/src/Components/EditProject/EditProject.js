@@ -44,7 +44,6 @@ export const EditProject = () =>
 
     useEffect(() =>
     {
-        console.log(id);
         setID(Location.pathname.split('/')[3]);
         if(id)
             getProject();
@@ -58,10 +57,7 @@ export const EditProject = () =>
 
         EasyFetch(URL, null, Method, Token).then(res => {
             if(res[1] === 200)
-            {
-                console.log(res);
                 setProject(res[0].data);
-            }
             else
                 setError(res[0].message);
         });
@@ -95,14 +91,12 @@ export const EditProject = () =>
     {
         if(title && title !== project?.title && title?.length > 10)
         {
-            console.log('updateTitle.');
             const URL = "project/"+id+"/title";
             const Method = "PUT";
             const Data = {"title" : title};
 
             EasyFetch(URL, Data, Method, Token).then(res =>
             {
-                console.log(res);
                 if(res[1] === 200)
                     setProject(res[0].data);
                 else
@@ -111,7 +105,6 @@ export const EditProject = () =>
         }
 
         ShowEdit("title");
-        console.log('title..');
     }
 
 
@@ -299,7 +292,6 @@ export const EditProject = () =>
 
         if(e.target.files)
         {
-            console.log('update image...');
             const URL = "project/"+id+"/image";
             const Method = "POST";
             const formData = new FormData();
@@ -309,7 +301,6 @@ export const EditProject = () =>
                 formData.append('file', e.target.files[0]);
                 EasyFetch(URL, formData, Method, Token, "multipart/form-data").then(res =>
                 {
-                    console.log(res);
                     if(res[1] === 200)
                         setProject(res[0].data);
                     else
@@ -324,7 +315,6 @@ export const EditProject = () =>
 
     const updatePresentation = (update) =>
     {
-        console.log('updatePresentation..');
         if(project !== null && project !== project?.presentation)
         {
             const URL = "project/"+id+"/presentation";
@@ -333,7 +323,6 @@ export const EditProject = () =>
 
             EasyFetch(URL, Data, Method, Token).then(res =>
             {
-                console.log(res);
                 if(res[1] === 200)
                     setProject(res[0].data);
                 else

@@ -27,8 +27,6 @@ export const SectionsListAdmin = () =>
                 setSections(res[0].data);
             else
                 setError(res[0].message);
-
-            console.log(res);
         });
     }
 

@@ -22,8 +22,6 @@ export const ArticleListAdmin = () =>
         {
             if(res[1] === 200)
                 setArticles(res[0].data);
-
-            console.log(res);
         });
     }
 

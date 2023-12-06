@@ -4,7 +4,7 @@ import './Admin.scss';
 import {useEffect, useState} from "react";
 import {Users} from "./Users/Users";
 import {MenuAdmin} from "../../Components/MenuAdmin/MenuAdmin";
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {EditUser} from "../../Components/EditUser/EditUser";
 import {ArticleListAdmin} from "../../Components/ArticleListAdmin/ArticleListAdmin";
 import {EditArticle} from "../../Components/EditArticle/EditArticle";
@@ -22,7 +22,6 @@ export const Admin = () =>
 
     useEffect(() => {
 
-        console.log('admin..');
         const currentLocation = Location.pathname.split('/');
 
         if(currentLocation[currentLocation.length - 1] === "admin")
@@ -40,10 +39,6 @@ export const Admin = () =>
             else
                 setLocation(currentLocation[currentLocation.length - 1]);
         }
-
-        console.log(location);
-
-        console.log(currentLocation);
     }, [Location.pathname]);
 
 
@@ -55,7 +50,7 @@ export const Admin = () =>
     return(
         <div className="Admin Container">
             <h1>#admin</h1>
-            <i className="fa-solid fa-house" onClick={(updatePath)}></i>
+            <Link to="home"><i className="fa-solid fa-house" onClick={(updatePath)}></i></Link>
             <MenuAdmin/>
 
             <main className="Admin__Main">

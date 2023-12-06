@@ -29,7 +29,6 @@ export const EasyFetch = (Url, Data = null, Method, Token = null, ContentType = 
     }
 
 
-    console.log(Init);
     return fetch(CurrentUrl, Init)
         .then(res=>  {
             Status = res.status;

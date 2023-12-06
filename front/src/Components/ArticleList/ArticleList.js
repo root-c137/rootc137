@@ -11,7 +11,6 @@ export const ArticleList = ({Articles = []}) =>
 
     const getArticle = (article) =>
     {
-        console.log(article);
         Navigate('/rootledev/articles/'+Slugify(article.title), {
             state: {article : article}
         });

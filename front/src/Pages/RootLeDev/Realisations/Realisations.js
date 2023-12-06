@@ -28,7 +28,6 @@ export const Realisations = () =>
         else
             setRealisationsFiltered(Realisations.filter(r => r.category.includes(currentCat) ) );
 
-
     }, [currentCat]);
 
     const getRealisations = () =>
@@ -39,14 +38,11 @@ export const Realisations = () =>
             const Method = "GET";
 
             EasyFetch(URL, null, Method, null, null, "/").then(res => {
-                console.log(res);
                 if (res[1] === 200) {
                     setRealisations(res[0].data);
                     setRealisationsFiltered(res[0].data);
                 }
             });
-
-            console.log("getrealisations...");
         }
     }
 

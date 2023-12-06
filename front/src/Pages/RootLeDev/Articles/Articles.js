@@ -19,47 +19,10 @@ export const Articles = () =>
         const Method = "GET";
 
         EasyFetch(URL, null, Method, null, null, "/").then(res => {
-            console.log(res);
             if(res[1] === 200)
                 setArticles(res[0].data);
         });
     }
-
-    const Articles = [
-        {
-            "Title": "Titre1",
-            "Image": ImgTest,
-            "Resume": "Résumé de l'article 1 blablkablezvesaezvaqzefazefé  azba .........",
-            "Author": "rootc137",
-            "CreatedAt": "29/11/2023",
-            "UpdatedAt": null
-        },
-        {
-            "Title": "Titre2",
-            "Image": ImgTest,
-            "Resume": "Résumé de l'articleedkdsiddkdkdkdkdkdkdkdkdkdlslslsmsmsmsmsmsmslslssl 2 blablkablba .........",
-            "Author": "rootc137",
-            "CreatedAt": "29/11/2023",
-            "UpdatedAt": null
-        },
-        {
-            "Title": "Titre3",
-            "Image": ImgTest,
-            "Resume": "Résumé de l'article 3 blablkablba .........",
-            "Author": "rootc137",
-            "CreatedAt": "29/11/2023",
-            "UpdatedAt": null
-        },
-        {
-            "Title": "Titre4",
-            "Image": ImgTest,
-            "Resume": "Résumé de l'article 4 blablkablba .........",
-            "Author": "rootc137",
-            "CreatedAt": "29/11/2023",
-            "UpdatedAt": null
-        }
-
-    ];
 
     return(
         <div className="RootLeDev__Articles">

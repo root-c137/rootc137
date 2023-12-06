@@ -19,8 +19,6 @@ export const Realisation = () =>
     useEffect(() => {
 
         setSlug(Location.pathname.split('/')[3]);
-        console.log(Location.pathname.split('/')[3]);
-
         if(slug)
             getRealisation();
 
@@ -28,12 +26,10 @@ export const Realisation = () =>
 
     const getRealisation = () =>
     {
-        console.log('REALISATION');
         const URL = "project/"+slug;
         const Method = "GET";
 
         EasyFetch(URL, null, Method, null, null, "/").then(res => {
-            console.log(res);
             if(res[1] === 200)
                 setRealisation(res[0].data);
         });

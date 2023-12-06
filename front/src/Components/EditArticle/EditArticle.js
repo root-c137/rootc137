@@ -31,7 +31,6 @@ export const EditArticle = () =>
 
     useEffect(() =>
     {
-        console.log(id);
         setID(Location.pathname.split('/')[3]);
         if(id)
             getArticle();
@@ -45,10 +44,7 @@ export const EditArticle = () =>
 
         EasyFetch(URL, null, Method, Token).then(res => {
             if(res[1] === 200)
-            {
-                console.log(res);
                 setArticle(res[0].data);
-            }
         });
     }
 
@@ -68,14 +64,12 @@ export const EditArticle = () =>
     {
         if(title && title !== article?.title && title?.length > 10)
         {
-            console.log('updateTitle.');
             const URL = "article/"+id+"/title";
             const Method = "PUT";
             const Data = {"title" : title};
 
             EasyFetch(URL, Data, Method, Token).then(res =>
             {
-                console.log(res);
                 if(res[1] === 200)
                     setArticle(res[0].data);
                 else
@@ -84,7 +78,6 @@ export const EditArticle = () =>
         }
 
         ShowEdit("title");
-        console.log('title..');
     }
 
     const updateResume = () =>
@@ -147,7 +140,6 @@ export const EditArticle = () =>
                 formData.append('file', e.target.files[0]);
                 EasyFetch(URL, formData, Method, Token, "multipart/form-data").then(res =>
                 {
-                    console.log(res);
                     if(res[1] === 200)
                     setArticle(res[0].data);
                     else
@@ -161,7 +153,6 @@ export const EditArticle = () =>
 
     const updateArticle = (update) =>
     {
-        console.log('updatearticle..');
         if(article !== null && article !== article?.text)
         {
             const URL = "article/"+id+"/text";

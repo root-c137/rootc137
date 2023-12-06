@@ -19,7 +19,6 @@ export const Protected = ({children}) =>
             EasyFetch(URL, null, Method, localStorage.getItem('token')).then
             (res =>
             {
-                console.log(res);
                 if(res[0].message === "OK")
                     setisOK(true);
                 else

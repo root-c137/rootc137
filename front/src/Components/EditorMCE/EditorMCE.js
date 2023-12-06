@@ -12,9 +12,8 @@ export const EditorMCE = ({id, update, defaultTxt = ""}) =>
     const [disabledButton, setDisabledButton] = useState(true);
 
     useEffect(() => {
-        if(content)
-        console.log(content);
-    }, [content]);
+
+    }, []);
 
 
     const handleChange = (content, editor) =>
@@ -27,7 +26,6 @@ export const EditorMCE = ({id, update, defaultTxt = ""}) =>
 
     const handleUpload = (blobInfo, success, failure) =>
     {
-        console.log('upload');
     }
 
     const save = () =>

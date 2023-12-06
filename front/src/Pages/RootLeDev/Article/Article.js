@@ -22,13 +22,11 @@ export const Article = () =>
 
     const getArticle = () =>
     {
-        console.log('article..'+slug);
         const URL = "article/"+slug;
         const Method = "GET";
 
         EasyFetch(URL, null, Method, null, null, "/").then(res =>
         {
-            console.log(res);
             if(res[1] === 200)
                 setArticle(res[0].data);
         });

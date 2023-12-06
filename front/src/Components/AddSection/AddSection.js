@@ -30,7 +30,6 @@ export const AddSection = () =>
             };
 
             EasyFetch(URL, Data, Method, Token).then(res => {
-                console.log(res);
                 if(res[1] === 200)
                     Navigate('/admin/sections');
                 else

@@ -25,7 +25,6 @@ export const Login = () =>
 
             EasyFetch(URL, Data, Method).then(res =>
             {
-                console.log(res);
                 if(res[0].message === "Invalid credentials.")
                     setError("Email et/ou mot de passe inccorect.");
                 else

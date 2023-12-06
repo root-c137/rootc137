@@ -12,12 +12,8 @@ export const Contact = () =>
     const [errorMsg, setErrorMsg] = useState(null);
 
     useEffect(() => {
-        console.log('Email : '+Email);
-        console.log('Name : '+Name);
-        console.log('Section : '+Section);
-        console.log('Msg : '+Msg);
 
-    }, [Section]);
+    }, []);
     const sendMessage = (e) =>
     {
         e.preventDefault();
@@ -35,8 +31,6 @@ export const Contact = () =>
                     "Sectione": Section,
                     "Msg": Msg
                 };
-
-                console.log('envoie...');
             }
 
         }

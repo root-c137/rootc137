@@ -17,7 +17,6 @@ export const EditUser = () =>
     useEffect(() =>
     {
         setID(Location.pathname.split('/')[3]);
-        console.log(id);
         if(id)
         getUser();
 
@@ -30,23 +29,19 @@ export const EditUser = () =>
 
         EasyFetch(URL, null, Method, localStorage.getItem('token'))
             .then(res => {
-                console.log(res);
                 if(res[1] === 200)
                     setUser(res[0].data)
             });
     }
 
     const update = () => {
-        console.log('update..'+user.roles.toString());
         const checkEmail = Email !== null && Email !== user.email;
         const checkPass = Pass !== null && Pass.length > 0;
         const checkUsername = Username !== null && Username !== user.Username;
         const checkRoles = Roles !== null && Roles !== user.roles.toString();
 
-        console.log('checkRoles : '+checkRoles);
         if(checkEmail || checkPass || checkUsername || checkRoles)
         {
-            console.log('okk');
             const URL = "user";
             const Method = "PUT";
             const Data = {

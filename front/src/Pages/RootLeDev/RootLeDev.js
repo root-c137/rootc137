@@ -51,7 +51,6 @@ export const RootLeDev = () =>
 
 
         EasyFetch(URL, null, Method, null, null, "/").then(res => {
-            console.log(res);
             if(res[1] === 200)
             {
                 setResume(res[0].data.resume);
