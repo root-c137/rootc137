@@ -2,6 +2,9 @@
 
 .Rootlecrivain
 {
+  display: flex;
+  justify-content: flex-start;
+
   &__Title
   {
     font-weight: bold;

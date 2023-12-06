@@ -20,12 +20,12 @@ export const Home = () =>
                 <div className="Home__Presentation__Item">
                     <i className="fa-brands fa-youtube"></i>
                     <p>Je crée du contenu pour ma chaine Youtube, Twitch, Tiktok.. etc</p>
-                    <Link to="/rootledev">#rootleyoutubeur</Link>
+                    <Link to="/rootleyoutubeur">#rootleyoutubeur</Link>
                 </div>
                 <div className="Home__Presentation__Item">
                     <i className="fa-solid fa-pen-nib"></i>
                     <p>J'écris également des livres pour te faire réver un peu.</p>
-                    <Link to="/rootledev">#rootlecrivain</Link>
+                    <Link to="/rootlecrivain">#rootlecrivain</Link>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ export const EasyFetch = (Url, Data = null, Method, Token = null, ContentType = 
     const API_PORT = 8000;
     let BaseURL = "http://localhost:"+API_PORT+basePath;
     if(window.location.origin !== "http://localhost:3000")
-        BaseURL = "https://finalgoat.com/FinalGoat/back/public"+basePath;
+        BaseURL = "https://rootc137.com/rootc137/back/public"+basePath;
 
     const CurrentUrl = BaseURL+Url;
     const Body = ContentType !== 'multipart/form-data' ? JSON.stringify(Data) : Data;
