@@ -1,0 +1,28 @@
+
+
+.Page404
+{
+  width:100%;
+  text-align: center;
+  h1
+  {
+    font-size: 3rem;
+  }
+  p
+  {
+    font-size: 2rem;
+    margin-top:30px;
+  }
+  a
+  {
+    margin-top:50px;
+    font-size: 1rem;
+    color: #8BE9FD;
+
+    &:hover
+    {
+      color: #FF79C6;
+    }
+  }
+}
+

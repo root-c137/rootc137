@@ -8,6 +8,7 @@ import ImgTest from '../../../Images/Articles/Test.jpg';
 import {EasyFetch} from "../../../Utils/EasyFetch";
 import parse from "html-react-parser";
 import {BaseUploadsPath} from "../../../Utils/BasePathUpload";
+import {Page404} from "../../404/Page404";
 
 export const Realisation = () =>
 {
@@ -36,49 +37,57 @@ export const Realisation = () =>
     }
 
     return(
-        <div className="RootLeDev__Realisation">
-            <h3>{realisation?.title}</h3>
-            <div className="RootLeDev__Realisation__Banniere"
-                 style={{
-                     backgroundImage : `url(${BaseUploadsPath()+realisation?.image})`,
-                     backgroundRepeat: 'no-repeat',
-                     backgroundPosition: 'center',
-                     backgroundSize: 'cover'
-                 }}/>
 
-            <div className="RootLeDev__Realisation__Infos">
+            realisation ?
 
-                <div className="RootLeDev__Realisation__Infos__Left">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td className="Table_Title">status</td>
-                                <td>{realisation?.status}</td>
-                            </tr>
-                            <tr>
-                                <td className="Table_Title">front</td>
-                                <td>{realisation?.front}</td>
-                            </tr>
-                            <tr>
-                                <td className="Table_Title">back</td>
-                                <td>{realisation?.back}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div className="RootLeDev__Realisation">
+                    <h3>{realisation?.title}</h3>
+                    <div className="RootLeDev__Realisation__Banniere"
+                         style={{
+                             backgroundImage: `url(${BaseUploadsPath() + realisation?.image})`,
+                             backgroundRepeat: 'no-repeat',
+                             backgroundPosition: 'center',
+                             backgroundSize: 'cover'
+                         }}/>
+
+                    <div className="RootLeDev__Realisation__Infos">
+
+                        <div className="RootLeDev__Realisation__Infos__Left">
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td className="Table_Title">status</td>
+                                    <td>{realisation?.status}</td>
+                                </tr>
+                                <tr>
+                                    <td className="Table_Title">front</td>
+                                    <td>{realisation?.front}</td>
+                                </tr>
+                                <tr>
+                                    <td className="Table_Title">back</td>
+                                    <td>{realisation?.back}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className="RootLeDev__Realisation__Infos__Right">
+                            {realisation?.web && <a href={realisation?.web}><i className="fa-solid fa-globe"></i></a>}
+                            {realisation?.android &&
+                                <a href={realisation?.android}><i className="fa-brands fa-google-play"></i></a>}
+                            {realisation?.ios && <><a href={realisation?.ios}><i
+                                className="fa-brands fa-apple"></i></a></>}
+                            {realisation?.github &&
+                                <a href={realisation?.github}><i className="fa-brands fa-github"></i></a>}
+                        </div>
+                    </div>
+
+                    <section className="RootLeDev__Realisation__Presentation">
+                        <h4>Présentation</h4>
+                        {realisation && parse(realisation?.presentation)}
+                    </section>
+
                 </div>
-                <div className="RootLeDev__Realisation__Infos__Right">
-                    {realisation?.web && <a href={realisation?.web}><i className="fa-solid fa-globe"></i></a>}
-                    {realisation?.android && <a href={realisation?.android}><i className="fa-brands fa-google-play"></i></a>}
-                    {realisation?.ios && <><a href={realisation?.ios}><i className="fa-brands fa-apple"></i></a></>}
-                    {realisation?.github && <a href={realisation?.github}><i className="fa-brands fa-github"></i></a>}
-                </div>
-            </div>
-
-            <section className="RootLeDev__Realisation__Presentation">
-                <h4>Présentation</h4>
-                {realisation && parse(realisation?.presentation)}
-            </section>
-
-        </div>
+                :
+                <Page404 />
     );
 }
