@@ -8,21 +8,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-class getArticleController extends AbstractController
+class getArticleByIDController extends AbstractController
 {
-    #[Route('/api/article/{slug}', name: 'app_api_article_get_article', methods: ['GET'])]
-    public function index($slug, EntityManagerInterface $M): JsonResponse
+    #[Route('/api/article/id/{id}', name: 'app_api_article_get_article_by_i_d', methods: ['GET'])]
+    public function index($id, EntityManagerInterface $M): JsonResponse
     {
         $Msg = "Ok";
         $StatusCode = 200;
-        $Data = [];
+        $Data = null;
 
-        if($slug)
+        if($id)
         {
-            $Article = $M->getRepository(Article::class)->findOneBy(['Slug' => $slug]);
+            $Article = $M->getRepository(Article::class)->find($id);
             if($Article)
             {
-                $Data[] = [
+                $Data = [
+                    "id" => $Article->getId(),
                     "title" => $Article->getTitle(),
                     "resume" => $Article->getResume(),
                     "author" => $Article->getAuthor(),
@@ -52,5 +53,3 @@ class getArticleController extends AbstractController
         ], $StatusCode);
     }
 }
-
-

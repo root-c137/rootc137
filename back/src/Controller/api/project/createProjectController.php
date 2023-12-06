@@ -22,8 +22,8 @@ class createProjectController extends AbstractController
         $Project = new Project();
         if($Data)
         {
+
             $Project->setTitle($Data['Title']);
-            $Project->setImage($Data['Image']);
             $Project->setFront($Data['Front']);
             $Project->setBack($Data['Back'] );
             $Project->setLinks($Data['Links'] );

@@ -23,14 +23,17 @@ class getArticlesController extends AbstractController
             foreach($Articles as $Article)
             {
                 $Data[] = [
-                    "Title" => $Article->getTitle(),
-                    "Resume" => $Article->getResume(),
-                    "Author" => $Article->getAuthor(),
-                    "Slug" => $Article->getSlug(),
-                    "Text" => $Article->getText(),
-                    "Section" => $Article->getSection()->getName(),
-                    "CreatedAt" => $Article->getCreatedAt(),
-                    "UpdatedAt" => $Article->getUpdatedAt()
+                    "id" => $Article->getId(),
+                    "title" => $Article->getTitle(),
+                    "resume" => $Article->getResume(),
+                    "author" => $Article->getAuthor(),
+                    "slug" => $Article->getSlug(),
+                    "text" => $Article->getText(),
+                    "image" => $Article->getImage(),
+                    "section" => $Article->getSection()->getName(),
+                    "createdAt" => $Article->getCreatedAt()->format("d-m-Y"),
+                    "updatedAt" => $Article->getUpdatedAt() !== null ?
+                        $Article->getUpdatedAt()->format('d-m-Y') : null
                 ];
             }
         }

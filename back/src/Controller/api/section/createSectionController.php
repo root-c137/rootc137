@@ -20,13 +20,13 @@ class createSectionController extends AbstractController
 
         if($Data)
         {
-            if(!empty($Data['Name']) && !empty($Data['Resume']) &&
-            !empty($Data['Presentation']) )
+            if(!empty($Data['name']) && !empty($Data['resume']) &&
+            !empty($Data['presentation']) )
             {
                 $Section = new Section();
-                $Section->setName($Data['Name']);
-                $Section->setResume($Data['Resume']);
-                $Section->setPresentation($Data['Presentation']);
+                $Section->setName($Data['name']);
+                $Section->setResume($Data['resume']);
+                $Section->setPresentation($Data['presentation']);
                 $Section->setCreatedAt(new \DateTimeImmutable());
 
                 $Data = $Section;

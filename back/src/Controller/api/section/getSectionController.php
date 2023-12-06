@@ -10,22 +10,33 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class getSectionController extends AbstractController
 {
-    #[Route('/api/section/{name}', name: 'app_api_section_get_section', methods: ['GET'])]
-    public function index($name, EntityManagerInterface $Manager): JsonResponse
+    #[Route('/api/section/{id}', name: 'app_api_section_get_section', methods: ['GET'])]
+    public function index(Section $section, EntityManagerInterface $Manager): JsonResponse
     {
         $Msg = "Ok";
         $StatusCode = 200;
+        $Data = [];
 
-        $Section = $Manager->getRepository(Section::class)->findOneBy(['Name' => $name]);
-        if(!$Section)
+        if(!$section)
         {
             $Msg = "section not found.";
             $StatusCode = 404;
         }
+        else
+        {
+            $Data = [
+                "id" => $section->getId(),
+                "name" => $section->getName(),
+                "resume" => $section->getResume(),
+                "presentation" => $section->getPresentation(),
+                "createdAt" => $section->getCreatedAt(),
+                "updatedAt" => $section->getUpdatedAt()
+            ];
+        }
 
         return $this->json([
             'message' => $Msg,
-            'data' => $Section,
+            'data' => $Data,
         ], $StatusCode);
     }
 }

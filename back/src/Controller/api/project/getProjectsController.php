@@ -28,14 +28,17 @@ class getProjectsController extends AbstractController
             foreach ($Projects as $project)
             {
                 $Data[] = [
-                    "Title" => $project->getTitle(),
-                    "Image" => $project->getImage(),
-                    "Presentation" => $project->getPresentation(),
-                    "Front" => $project->getFront(),
-                    "Back" => $project->getBack(),
-                    "Status" => $project->getStatus(),
-                    "Section" => $project->getSection()->getName(),
-                    "Category" => $project->getCategory()
+                    "id" => $project->getId(),
+                    "title" => $project->getTitle(),
+                    "image" => $project->getImage(),
+                    "presentation" => $project->getPresentation(),
+                    "front" => $project->getFront(),
+                    "back" => $project->getBack(),
+                    "status" => $project->getStatus(),
+                    "section" => $project->getSection()->getName(),
+                    "category" => $project->getCategory(),
+                    "createdAt" => $project->getCreatedAt()->format('d-m-Y'),
+                    "updatedAt" => $project->getUpdatedAt() !== null ? $project->getUpdatedAt()->format('d-m-Y') : null
                 ];
             }
         }
