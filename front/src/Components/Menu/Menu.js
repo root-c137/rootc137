@@ -15,10 +15,10 @@ export const Menu = ({refreshMenu}) =>
                         <Link to="/rootledev" onClick={refreshMenu}>#rootledev</Link>
                     </li>
                     <li className="Menu__List__Item">
-                        <Link to="#" onClick={refreshMenu}>#rootleyoutubeur</Link>
+                        <Link to="/rootleyoutubeur" onClick={refreshMenu}>#rootleyoutubeur</Link>
                     </li>
                     <li className="Menu__List__Item">
-                        <Link to="#" onClick={refreshMenu}>#rootlecrivain</Link>
+                        <Link to="/rootlecrivain" onClick={refreshMenu}>#rootlecrivain</Link>
                     </li>
                 </ul>
             </nav>

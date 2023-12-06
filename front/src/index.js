@@ -15,6 +15,8 @@ import {Login} from "./Pages/Login/Login";
 import {Protected} from "./Components/Protected/Protected";
 import {Users} from "./Pages/Admin/Users/Users";
 import {Page404} from "./Pages/404/Page404";
+import {Rootlecrivain} from "./Pages/Rootlecrivain/Rootlecrivain";
+import {RootYoutubeur} from "./Pages/RootLeYoutubeur/RootYoutubeur";
 
 
 export const BaseUploasPath = "http://localhost:8000/uploads/";
@@ -34,6 +36,9 @@ root.render(
             <Route path="/rootledev/tutos" element={<RootLeDev/>} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
+
+            <Route path="/rootlecrivain" element={<Rootlecrivain/>} />
+            <Route path="/rootleyoutubeur" element={<RootYoutubeur/>} />
 
 
             <Route path="/admin" element={<Protected><Admin/></Protected>} />
