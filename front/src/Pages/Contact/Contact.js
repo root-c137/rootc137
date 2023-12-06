@@ -2,6 +2,7 @@
 import './Contact.scss';
 import {useEffect, useState} from "react";
 import {Error} from "../../Components/Error/Error";
+import {EasyFetch} from "../../Utils/EasyFetch";
 
 export const Contact = () =>
 {
@@ -10,6 +11,7 @@ export const Contact = () =>
     const [Section, setSection] = useState(null);
     const [Msg, setMsg] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
+    const [success, setSuccess] = useState(null);
 
     useEffect(() => {
 
@@ -17,20 +19,31 @@ export const Contact = () =>
     const sendMessage = (e) =>
     {
         e.preventDefault();
-        if(Email && Name && Section && Msg)
+        setErrorMsg(null);
+
+        if(Email && Name && Msg)
         {
             if(Msg.length < 100)
-                setErrorMsg("Le message doit contenir au moins 100 caractères.");
+                setErrorMsg("Le message doit contenir au moins 50 caractères.");
             else
             {
-                const URL = "api/message";
+                const URL = "message";
                 const Method = "POST";
                 const Data = {
                     "Name" : Name,
                     "Email": Email,
-                    "Sectione": Section,
                     "Msg": Msg
                 };
+
+                EasyFetch(URL, Data, Method, null, null, "/").then(res => {
+                    if(res[1] === 200)
+                    {
+                        setErrorMsg(null);
+                        setSuccess("Votre message a bien été envoyé. 🤙");
+                    }
+                    else
+                        setErrorMsg(res[0].message);
+                });
             }
 
         }
@@ -48,32 +61,21 @@ export const Contact = () =>
                 </div>
 
                 {errorMsg && <Error msg={errorMsg}/>}
-                <p>Tu peux me contacter en utilisant ce formulaire</p>
+                {success ? <p>{success}</p> : <p>Tu peux me contacter en utilisant ce formulaire</p>}
                 <form>
                     <div className="FormGroup">
                         <label htmlFor="Name">Nom</label>
                         <input type="text" name="Name" id="Name" onChange={e =>
-                        setName(e.currentTarget.value) } />
+                        setName(e.target.value) } />
                     </div>
                     <div className="FormGroup">
                         <label htmlFor="Email">Email</label>
                         <input type="text" name="Email" id="Email" onClick={e =>
-                        setEmail(e.currentTarget.value) } />
-                    </div>
-                    <div className="FormGroup">
-                        <label htmlFor="Section">Section concernée</label>
-                        <select name="Section" id="Section" onChange={e =>
-                        setSection(e.currentTarget.value) }>
-                            <option value="null"></option>
-                            <option value="rootledev">#Rootledev</option>
-                            <option value="rootledev">#Rootledev</option>
-                            <option value="rootledev">#Rootledev</option>
-                            <option value="aucune">aucune</option>
-                        </select>
+                        setEmail(e.target.value) } />
                     </div>
                     <div className="FormGroup">
                         <label htmlFor="Msg">Message</label>
-                        <textarea name="Msg" id="Msg" onChange={e => setMsg(e.currentTarget.value) }></textarea>
+                        <textarea name="Msg" id="Msg" onChange={e => setMsg(e.target.value) }></textarea>
                     </div>
 
                     <button onClick={sendMessage}>envoyer</button>
