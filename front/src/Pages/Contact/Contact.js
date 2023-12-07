@@ -13,17 +13,14 @@ export const Contact = () =>
     const [errorMsg, setErrorMsg] = useState(null);
     const [success, setSuccess] = useState(null);
 
-    useEffect(() => {
-
-    }, []);
     const sendMessage = (e) =>
     {
         e.preventDefault();
         setErrorMsg(null);
 
-        if(Email && Name && Msg)
+        if(Email !== null && Name !== null && Msg !== null)
         {
-            if(Msg.length < 100)
+            if(Msg.length < 50)
                 setErrorMsg("Le message doit contenir au moins 50 caractères.");
             else
             {
@@ -45,7 +42,6 @@ export const Contact = () =>
                         setErrorMsg(res[0].message);
                 });
             }
-
         }
         else
             setErrorMsg("Tous les champs sont nécessaires.");
@@ -66,21 +62,19 @@ export const Contact = () =>
                     <div className="FormGroup">
                         <label htmlFor="Name">Nom</label>
                         <input type="text" name="Name" id="Name" onChange={e =>
-                        setName(e.target.value) } />
+                        setName(e.currentTarget.value) } />
                     </div>
                     <div className="FormGroup">
                         <label htmlFor="Email">Email</label>
-                        <input type="text" name="Email" id="Email" onClick={e =>
-                        setEmail(e.target.value) } />
+                        <input type="text" name="Email" id="Email" onChange={e => setEmail(e.currentTarget.value)} />
                     </div>
                     <div className="FormGroup">
                         <label htmlFor="Msg">Message</label>
-                        <textarea name="Msg" id="Msg" onChange={e => setMsg(e.target.value) }></textarea>
+                        <textarea name="Msg" id="Msg" onChange={e => e.currentTarget.value !== Msg && setMsg(e.currentTarget.value)}></textarea>
                     </div>
 
                     <button onClick={sendMessage}>envoyer</button>
                 </form>
-
             </div>
         </div>
     )

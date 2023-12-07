@@ -64,7 +64,7 @@ export const RootLeDev = () =>
         <div className="Container RootLeDev">
             <h3 className="RootLeDev__Title">#rootledev</h3>
             <div className="RootLeDev__Presentation">
-                {resume ? resume : ''}
+                {resume ? <p>{resume}</p> : ''}
             </div>
             <section className="RootLeDev__Menu">
                 <nav>

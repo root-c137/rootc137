@@ -69,7 +69,11 @@ export const AddProject = () =>
             Form.append("Status", status);
             Form.append("File", image);
             Form.append("Category", category);
-            Form.append("Presentation", presentation);
+            Form.append("Android", android);
+            Form.append("Ios", ios);
+            Form.append("Github", github);
+            Form.append("Web", web);
+            Form.append("Presentation", content);
 
             EasyFetch(URL, Form, Method, Token, "multipart/form-data").then(res =>
             {
@@ -143,15 +147,22 @@ export const AddProject = () =>
                 </div>
                 <div className="AddProject__Top__Group">
                     <label htmlFor="Github">Github</label>
-                    <input type="text" name="text" id="text" />
+                    <input type="text" name="text" id="text" onChange={e => setGithub(e.currentTarget.value)}/>
                 </div>
                 <div className="AddProject__Top__Group">
                     <label htmlFor="Web">Web</label>
-                    <input type="text" name="Web" id="Web"/>
+                    <input type="text" name="Web" id="Web"
+                    onChange={e => setWeb(e.currentTarget.value)}/>
                 </div>
                 <div className="AddProject__Top__Group">
                     <label htmlFor="Android">Android</label>
-                    <input type="text" name="Android" id="Android"/>
+                    <input type="text" name="Android" id="Android"
+                           onChange={e => setAndroid(e.currentTarget.value)}/>
+                </div>
+                <div className="AddProject__Top__Group">
+                    <label htmlFor="Ios">iOS</label>
+                    <input type="text" name="Ios" id="Android"
+                           onChange={e => setIOS(e.currentTarget.value)}/>
                 </div>
             </div>
 

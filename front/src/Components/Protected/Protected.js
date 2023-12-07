@@ -10,7 +10,6 @@ export const Protected = ({children}) =>
 
     useEffect(() =>
     {
-
         const checkToken = () =>
         {
             const URL = "testtoken";
