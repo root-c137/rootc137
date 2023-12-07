@@ -70,13 +70,13 @@ export const Realisation = () =>
                             </table>
                         </div>
                         <div className="RootLeDev__Realisation__Infos__Right">
-                            {realisation?.web !== null && realisation?.web !== "null" && <a href={realisation?.web}><i className="fa-solid fa-globe"></i></a> }
+                            {realisation?.web !== null && realisation?.web !== "null" && <a target="_blank" href={realisation?.web}><i className="fa-solid fa-globe"></i></a> }
                             {realisation?.android !== null && realisation?.android !== "null" &&
-                                <a href={realisation?.android}><i className="fa-brands fa-google-play"></i></a>}
-                            {realisation?.ios !== null && realisation?.ios !== "null" && <><a href={realisation?.ios}><i
+                                <a href={realisation?.android} target="_blank"><i className="fa-brands fa-google-play"></i></a>}
+                            {realisation?.ios !== null && realisation?.ios !== "null" && <><a href={realisation?.ios} target="_blank"><i
                                 className="fa-brands fa-apple"></i></a></>}
                             {realisation?.github !== null && realisation?.github !== "null" &&
-                                <a href={realisation?.github}><i className="fa-brands fa-github"></i></a>}
+                                <a href={realisation?.github} target="_blank"><i className="fa-brands fa-github"></i></a>}
                         </div>
                     </div>
 
