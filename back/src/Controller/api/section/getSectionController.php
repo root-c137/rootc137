@@ -11,11 +11,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class getSectionController extends AbstractController
 {
     #[Route('/api/section/{id}', name: 'app_api_section_get_section', methods: ['GET'])]
-    public function index(Section $section, EntityManagerInterface $Manager): JsonResponse
+    public function index(Section $section = null, EntityManagerInterface $Manager): JsonResponse
     {
         $Msg = "Ok";
         $StatusCode = 200;
-        $Data = [];
+        $Data = null;
 
         if(!$section)
         {

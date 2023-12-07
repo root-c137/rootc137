@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class deleteSectionController extends AbstractController
 {
-    #[Route('/api/section/{id}', name: 'app_api_section_delete_section')]
+    #[Route('/api/section/{id}', name: 'app_api_section_delete_section', methods: ['DELETE'])]
     public function index(Section $section = null, EntityManagerInterface $M): JsonResponse
     {
         $Msg = "OK";

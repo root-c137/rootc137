@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class updateSectionController extends AbstractController
 {
     #[Route('/api/section/{id}/name', name: 'app_api_section_update_section')]
-    public function index(Section $section, Request $request, EntityManagerInterface $M): JsonResponse
+    public function index(Section $section = null, Request $request, EntityManagerInterface $M): JsonResponse
     {
         $Msg = "OK";
         $StatusCode = 200;
@@ -24,7 +24,7 @@ class updateSectionController extends AbstractController
             if(!empty($D) && strlen($D['name']) > 2)
             {
                 $s = $M->getRepository(Section::class)->findOneBy(['Name' => $D['name']]);
-                if(!$s)
+                if($s)
                 {
                     $section->setName($D['name']);
                     $section->setUpdatedAt(new \DateTimeImmutable() );
@@ -42,7 +42,7 @@ class updateSectionController extends AbstractController
                 else
                 {
                     $StatusCode = 500;
-                    $Msg = "this section aleardy exist.";
+                    $Msg = "section not found.";
                 }
             }
             else
@@ -64,7 +64,7 @@ class updateSectionController extends AbstractController
     }
 
     #[Route('/api/section/{id}/resume', name: 'app_api_section_update_section_resume')]
-    public function resume(Section $section, Request $request, EntityManagerInterface $M): JsonResponse
+    public function resume(Section $section = null, Request $request, EntityManagerInterface $M): JsonResponse
     {
         $Msg = "OK";
         $StatusCode = 200;
@@ -105,8 +105,9 @@ class updateSectionController extends AbstractController
             'data' => $Data
         ], $StatusCode);
     }
+
     #[Route('/api/section/{id}/presentation', name: 'app_api_section_update_section_presentation', methods: ['PUT'] )]
-    public function presentation(Section $section, Request $request, EntityManagerInterface $M): JsonResponse
+    public function presentation(Section $section = null, Request $request, EntityManagerInterface $M): JsonResponse
     {
         $Msg = "OK";
         $StatusCode = 200;
@@ -133,7 +134,7 @@ class updateSectionController extends AbstractController
             else
             {
                 $StatusCode = 400;
-                $Msg = "Resume incorrect. ( > 300 )";
+                $Msg = "Presentation incorrect. ( > 300 )";
             }
         }
         else
