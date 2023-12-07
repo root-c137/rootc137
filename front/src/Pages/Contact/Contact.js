@@ -6,10 +6,9 @@ import {EasyFetch} from "../../Utils/EasyFetch";
 
 export const Contact = () =>
 {
-    const [Email, setEmail] = useState(null);
-    const [Name, setName] = useState(null);
-    const [Section, setSection] = useState(null);
-    const [Msg, setMsg] = useState(null);
+    const [Email, setEmail] = useState("");
+    const [Name, setName] = useState("");
+    const [Msg, setMsg] = useState("");
     const [errorMsg, setErrorMsg] = useState(null);
     const [success, setSuccess] = useState(null);
 
@@ -18,7 +17,7 @@ export const Contact = () =>
         e.preventDefault();
         setErrorMsg(null);
 
-        if(Email !== null && Name !== null && Msg !== null)
+        if(Email.length > 0 && Name.length && Msg.length > 50)
         {
             if(Msg.length < 50)
                 setErrorMsg("Le message doit contenir au moins 50 caractères.");
@@ -35,7 +34,10 @@ export const Contact = () =>
                 EasyFetch(URL, Data, Method, null, null, "/").then(res => {
                     if(res[1] === 200)
                     {
-                        setErrorMsg(null);
+                        setErrorMsg("");
+                        setEmail("");
+                        setName("");
+                        setMsg("");
                         setSuccess("Votre message a bien été envoyé. 🤙");
                     }
                     else
@@ -62,15 +64,18 @@ export const Contact = () =>
                     <div className="FormGroup">
                         <label htmlFor="Name">Nom</label>
                         <input type="text" name="Name" id="Name" onChange={e =>
-                        setName(e.currentTarget.value) } />
+                        setName(e.currentTarget.value) }
+                        value={Name}/>
                     </div>
                     <div className="FormGroup">
                         <label htmlFor="Email">Email</label>
-                        <input type="text" name="Email" id="Email" onChange={e => setEmail(e.currentTarget.value)} />
+                        <input type="text" name="Email" id="Email" onChange={e => setEmail(e.currentTarget.value)}
+                               value={Email}/>
                     </div>
                     <div className="FormGroup">
                         <label htmlFor="Msg">Message</label>
-                        <textarea name="Msg" id="Msg" onChange={e => e.currentTarget.value !== Msg && setMsg(e.currentTarget.value)}></textarea>
+                        <textarea name="Msg" id="Msg" onChange={e => e.currentTarget.value !== Msg && setMsg(e.currentTarget.value)}
+                        value={Msg}></textarea>
                     </div>
 
                     <button onClick={sendMessage}>envoyer</button>
