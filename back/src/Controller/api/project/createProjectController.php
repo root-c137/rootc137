@@ -60,8 +60,8 @@ class createProjectController extends AbstractController
                             $Project->setAndroid($request->request->get('Android') );
                         if($request->request->get('Web') )
                             $Project->setWeb($request->request->get('Web') );
-                        if($request->request->get('GitHub') )
-                            $Project->setGithub($request->request->get('GitHub') );
+                        if($request->request->get('Github') )
+                            $Project->setGithub($request->request->get('Github') );
 
                         $Manager->persist($Project);
                         $Manager->flush();

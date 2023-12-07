@@ -41,6 +41,7 @@ class getProjectBySlugController extends AbstractController
                     "github" => $P->getGithub(),
                     "presentation" => $P->getPresentation()
                 ];
+
             }
             else
             {
