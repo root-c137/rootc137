@@ -31,7 +31,7 @@ export const ArticleListAdmin = () =>
             <Link className="ArticleListAdmin__AddLink" to={"/admin/articles/add"}>ajouter un article</Link>
 
             <TableAdmin data={articles} thead={["section","title", "resume", "author", "image"]}
-            path={"/admin/articles/"}/>
+            path={"/admin/articles/"} delPath={"article"} refreshData={getArticles}/>
         </div>
     )
 }

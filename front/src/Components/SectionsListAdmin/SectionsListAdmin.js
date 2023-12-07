@@ -37,7 +37,7 @@ export const SectionsListAdmin = () =>
 
             {error && <Error msg={error}/>}
             <TableAdmin data={sections} thead={["name", "resume"]}
-                        path={"/admin/sections/"}/>
+                        path={"/admin/sections/"} delPath={"section"} refreshData={getSections}/>
         </div>
     )
 }

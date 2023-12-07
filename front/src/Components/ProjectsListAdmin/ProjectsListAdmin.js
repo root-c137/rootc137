@@ -30,7 +30,7 @@ export const ProjectsListAdmin = () =>
             <Link className="ProjectsListAdmin__AddLink" to={"/admin/projects/add"}>ajouter un projet</Link>
 
             <TableAdmin data={projects} thead={["section","category", "title", "front", "back",
-            'status', 'image']} path={"/admin/projects/"}/>
+            'status', 'image']} path={"/admin/projects/"} delPath={"project"} refreshData={getProjects}/>
         </div>
     )
 }

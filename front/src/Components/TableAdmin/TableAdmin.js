@@ -1,12 +1,40 @@
 import {Link} from "react-router-dom";
 import './TableAdmin.scss';
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
+import {EasyFetch} from "../../Utils/EasyFetch";
 
-export const TableAdmin = ({data, thead, path}) =>
+export const TableAdmin = ({data, thead, path, delPath, refreshData}) =>
 {
+    const [showDeleteMenu, setShowDeleteMenu] = useState([]);
+    const [currentData, setCurrentData] = useState(data);
+
     useEffect(() => {
 
+        if(data)
+        {
+            let newArray = [];
+            for(let i=0; i<data.length; i++)
+            newArray.push(false);
+
+            setShowDeleteMenu([...showDeleteMenu, newArray]);
+        }
+
     }, []);
+
+
+    const Delete = (id) =>
+    {
+        const URL = delPath+"/"+id;
+        const Method = "DELETE";
+        const Token = localStorage.getItem("token");
+
+
+        EasyFetch(URL, null, Method, Token).then(res => {
+            if(res[1] === 200)
+                refreshData()
+        });
+
+    }
 
     return(
         <table className="TableAdmin">
@@ -39,8 +67,18 @@ export const TableAdmin = ({data, thead, path}) =>
                             <td>{d.createdAt}</td>
                             <td>{d.updatedAt}</td>
                             <td>
-                                <Link to={path+d.id}><i className="fa-solid fa-pen-to-square"></i></Link>
-                                <button><i className="fa-solid fa-trash"></i></button>
+
+                                { showDeleteMenu[key] ?
+                                    <div className="DeleteMenu">
+                                        <p>Sûr ?</p>
+                                        <span>OUI</span>
+                                        <span>annuler</span>
+                                    </div> :
+                                    <>
+                                        <Link to={path+d.id}><i className="fa-solid fa-pen-to-square"></i></Link>
+                                        <button onClick={() => Delete(d.id)}><i className="fa-solid fa-trash"></i></button>
+                                    </>
+                                }
                             </td>
                         </tr>
                     )
