@@ -30,7 +30,6 @@ export const Realisation = () =>
         const Method = "GET";
 
         EasyFetch(URL, null, Method, null, null, "/").then(res => {
-            console.log(res);
             if(res[1] === 200)
                 setRealisation(res[0].data);
         });
@@ -71,12 +70,12 @@ export const Realisation = () =>
                             </table>
                         </div>
                         <div className="RootLeDev__Realisation__Infos__Right">
-                            {realisation?.web && <a href={realisation?.web}><i className="fa-solid fa-globe"></i></a>}
-                            {realisation?.android &&
+                            {realisation?.web !== null && realisation?.web !== "null" && <a href={realisation?.web}><i className="fa-solid fa-globe"></i></a> }
+                            {realisation?.android !== null && realisation?.android !== "null" &&
                                 <a href={realisation?.android}><i className="fa-brands fa-google-play"></i></a>}
-                            {realisation?.ios && <><a href={realisation?.ios}><i
+                            {realisation?.ios !== null && realisation?.ios !== "null" && <><a href={realisation?.ios}><i
                                 className="fa-brands fa-apple"></i></a></>}
-                            {realisation?.github &&
+                            {realisation?.github !== null && realisation?.github !== "null" &&
                                 <a href={realisation?.github}><i className="fa-brands fa-github"></i></a>}
                         </div>
                     </div>
