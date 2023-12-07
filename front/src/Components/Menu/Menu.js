@@ -20,12 +20,13 @@ export const Menu = ({refreshMenu}) =>
                     <li className="Menu__List__Item">
                         <Link to="/rootlecrivain" onClick={refreshMenu}>#rootlecrivain</Link>
                     </li>
+                    <li className="Menu__List__Item">
+                        <Link to="/contact" onClick={refreshMenu}>#contact</Link>
+                    </li>
                 </ul>
             </nav>
 
             {window.innerWidth < 1200 && <><SocialMenu /><Footer refreshMenu={refreshMenu}/></>}
-
         </div>
-
     )
 }

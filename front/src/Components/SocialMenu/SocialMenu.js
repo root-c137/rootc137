@@ -11,6 +11,7 @@ export const SocialMenu = () =>
                 <a href="https://www.youtube.com/@rootc137" target="_blank"><i className="fa-brands fa-youtube"></i></a>
                 <a href="https://www.twitch.tv/rootc137" target="_blank"><i className="fa-brands fa-twitch"></i></a>
                 <a href="https://www.tiktok.com/@rootc137" target="_blank"><i className="fa-brands fa-tiktok"></i></a>
+                <a href="https://github.com/root-c137/rootc137" target="_blank"><i className="fa-brands fa-github"></i></a>
             </div>
 
             {window.innerWidth >= 1200 && <Footer />}

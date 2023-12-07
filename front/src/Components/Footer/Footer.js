@@ -7,7 +7,6 @@ export const Footer = ({refreshMenu}) =>
     return(
         <footer className="Footer">
             <Link to="/mentions-legales" onClick={refreshMenu}>mentions légales</Link>
-            <Link to="/contact" onClick={refreshMenu}>contact</Link>
         </footer>
     )
 }
