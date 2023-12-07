@@ -16,16 +16,31 @@ class getMessagesController extends AbstractController
         $Msg = "OK";
         $StatusCode = 200;
         $Messages = $M->getRepository(Message::class)->findAll();
+        $Data = [];
 
         if(!$Messages)
         {
             $Msg = "Aucun message.";
             $StatusCode = 404;
         }
+        else
+        {
+            foreach($Messages as $m)
+            {
+                $Data[] = [
+                    "id" => $m->getId(),
+                    "name" => $m->getName(),
+                    "email" => $m->getEmail(),
+                    "ip" => $m->getIP(),
+                    "txt" => $m->getTxt(),
+                    "date" => $m->getCreatedAt()->format("d-m-Y H-i-s")
+                ];
+            }
+        }
 
         return $this->json([
             'message' => $Msg,
-            'data' => $Messages
+            'data' => $Data
         ], $StatusCode);
     }
 }

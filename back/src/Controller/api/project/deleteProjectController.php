@@ -19,7 +19,6 @@ class deleteProjectController extends AbstractController
 
         if($project)
         {
-            $Data = $project;
             $M->remove($project);
             $M->flush();
         }
@@ -30,8 +29,7 @@ class deleteProjectController extends AbstractController
         }
 
         return $this->json([
-            'message' => $Msg,
-            'data' => $Data
+            'message' => $Msg
         ], $StatusCode);
     }
 }
