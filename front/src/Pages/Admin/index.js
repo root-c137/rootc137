@@ -15,6 +15,7 @@ import {AddArticle} from "../../Components/AddArticle/AddArticle";
 import {ProjectsListAdmin} from "../../Components/ProjectsListAdmin/ProjectsListAdmin";
 import {EditProject} from "../../Components/EditProject/EditProject";
 import {AddProject} from "../../Components/AddProject/AddProject";
+import {Messages} from "./Messages/Messages";
 export const Admin = () =>
 {
     const Location = useLocation();
@@ -50,7 +51,7 @@ export const Admin = () =>
     return(
         <div className="Admin Container">
             <h1>#admin</h1>
-            <Link to="home"><i className="fa-solid fa-house" onClick={(updatePath)}></i></Link>
+            <Link to="/admin"><i className="fa-solid fa-house" onClick={(updatePath)}></i></Link>
             <MenuAdmin/>
 
             <main className="Admin__Main">
@@ -58,6 +59,8 @@ export const Admin = () =>
                 {location === "articles" && <ArticleListAdmin />}
                 {location === "sections" && <SectionsListAdmin />}
                 {location === "projects" && <ProjectsListAdmin />}
+                {location === "messages" && <Messages />}
+
 
                 {location.includes("users/") && location.length >= 7
                     ? <EditUser /> : ''}

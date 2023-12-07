@@ -7,13 +7,6 @@ export const MenuAdmin = () =>
 {
     return(
         <div className="MenuAdmin">
-            <Link to="/admin/users" className="MenuAdmin__Item">
-                    <div>
-                        <i className="fa-solid fa-users"></i>
-                        <h2>Utilisateurs</h2>
-                    </div>
-                    <p>Gérer les utilisateurs</p>
-            </Link>
             <Link to="/admin/articles" className="MenuAdmin__Item" >
                 <div>
                     <i className="fa-solid fa-newspaper"></i>
@@ -34,6 +27,13 @@ export const MenuAdmin = () =>
                     <h2>Projets</h2>
                 </div>
                 <p>Gérer les projets</p>
+            </Link>
+            <Link to="/admin/messages" className="MenuAdmin__Item" >
+                <div>
+                    <i className="fa-solid fa-envelope"></i>
+                    <h2>Messages</h2>
+                </div>
+                <p>Gérer les messages</p>
             </Link>
         </div>
     )

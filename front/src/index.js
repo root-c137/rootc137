@@ -55,6 +55,7 @@ root.render(
             <Route path="/admin/sections/add" element={<Protected><Admin/></Protected>} />
             <Route path="/admin/projects/" element={<Protected><Admin/></Protected>} />
             <Route path="/admin/projects/:id" element={<Protected><Admin/></Protected>} />
+            <Route path="/admin/messages" element={<Protected><Admin/></Protected>} />
             <Route path="*" element={<Page404 />} />
 
         </Routes>
