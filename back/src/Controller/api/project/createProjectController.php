@@ -54,13 +54,13 @@ class createProjectController extends AbstractController
                         $Project->setCreatedAt(new \DateTimeImmutable() );
                         $Project->setUpdatedAt($Project->getCreatedAt() );
 
-                        if($request->request->get('Ios'))
+                        if($request->request->get('Ios') !== null)
                             $Project->setIos($request->request->get('Ios') );
-                        if($request->request->get('Android') )
+                        if($request->request->get('Android') !== null )
                             $Project->setAndroid($request->request->get('Android') );
-                        if($request->request->get('Web') )
+                        if($request->request->get('Web') !== null)
                             $Project->setWeb($request->request->get('Web') );
-                        if($request->request->get('Github') )
+                        if($request->request->get('Github') !== null )
                             $Project->setGithub($request->request->get('Github') );
 
                         $Manager->persist($Project);
