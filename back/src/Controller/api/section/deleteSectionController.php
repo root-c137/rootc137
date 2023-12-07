@@ -19,7 +19,7 @@ class deleteSectionController extends AbstractController
         if($section)
         {
             $M->remove($section);
-            $M->flush();
+            //$M->flush(); -> ca provoque un bug pour le moment "cascade..";
         }
         else
         {
