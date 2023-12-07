@@ -35,7 +35,6 @@ export const EditSections = () =>
 
         EasyFetch(URL, null, Method, Token).then(res =>
         {
-            console.log(res);
             if(res[1] === 200)
                 setSection(res[0].data);
             else
